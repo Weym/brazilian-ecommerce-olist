@@ -3,12 +3,12 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-last_updated: "2026-03-01T23:00:58.274Z"
+last_updated: "2026-03-01T23:14:56.170Z"
 progress:
   total_phases: 6
-  completed_phases: 3
+  completed_phases: 4
   total_plans: 21
-  completed_plans: 12
+  completed_plans: 13
 ---
 
 # Project State
@@ -18,16 +18,16 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-01)
 
 **Core value:** Mostrar que e possivel agir antes do problema acontecer — transformar dados historicos de logistica em um sistema de alerta precoce que permite intervencao antes da entrega e da avaliacao ruim.
-**Current focus:** Phase 4 — ML Pipeline (Ato 2)
+**Current focus:** Phase 5 — Slides Ato 2 (next after Phase 4 ML complete)
 
 ## Current Position
 
-Phase: 4 of 6 (ML Pipeline) — IN PROGRESS
-Plan: 2 of 3 in current phase — COMPLETO
-Status: Plan 04-02 complete — XGBoost Pipeline trained (PR-AUC=0.2283 > baseline 0.2207), models/final_pipeline.joblib serialized, SHAP beeswarm PNG generated; ready for Plan 04-03 (threshold tuning + seller table)
-Last activity: 2026-03-01 — Plan 04-02 completo: FASE4-P4-ml-pipeline.ipynb (secoes 3-4) + final_pipeline.joblib + shap_beeswarm.png — commits 5ff90d2, b8d4e05
+Phase: 4 of 6 (ML Pipeline) — COMPLETO
+Plan: 3 of 3 in current phase — COMPLETO
+Status: Plan 04-03 complete — sections 5-7 added to FASE4-P4-ml-pipeline.ipynb; threshold=0.785 (Precision=0.40); pr_curve.png saved; seller risk table (top-20); round-trip joblib verified — Phase 4 fully complete
+Last activity: 2026-03-01 — Plan 04-03 completo: sections 5-7 + pr_curve.png + round-trip verification — commits 4d00ef3, 973c14f
 
-Progress: [████████░░] 57%
+Progress: [█████████░] 62%
 
 ## Performance Metrics
 
@@ -58,6 +58,7 @@ Progress: [████████░░] 57%
 | Phase 03-eda-ato-1 P02 | 15 | 2 tasks | 6 files |
 | Phase 04-ml-ato-2 P04-01 | 18 | 2 tasks | 6 files |
 | Phase 04-ml-ato-2 P04-02 | 6 | 2 tasks | 3 files |
+| Phase 04-ml-ato-2 P04-03 | 10 | 2 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -109,6 +110,8 @@ Recent decisions affecting current work:
 - [Phase 04-ml-ato-2]: XGBoost PR-AUC=0.2283 > baseline 0.2207 — confirmed superior before Ato 2 presentation; scale_pos_weight=6.18 from y_train
 - [Phase 04-ml-ato-2]: Top SHAP features: order_item_count (0.188), customer_state_RJ (0.101), seller_customer_distance_km (0.098) — pre-delivery risk drivers
 - [Phase 04-ml-ato-2]: SHAP capped at 5000 sample of 19492 test rows for performance; TreeExplainer used (not generic shap.Explainer)
+- [Phase 04-ml-ato-2]: Threshold=0.785 at Precision=0.40; Recall=0.02 triggers AVISO (not halt) per plan spec; operational estimate: 8 flagged/week, 40% real risk
+- [Phase 04-ml-ato-2]: Seller table: 1247 eligible sellers (>=10 orders), top-20 by mean risk score; seller_id loaded as auxiliary join key outside PRE_DELIVERY_FEATURES
 
 ### Pending Todos
 
@@ -118,11 +121,11 @@ None yet.
 
 - [Phase 1 RESOLVIDO]: bad_review = 13.9% confirmado em Phase 2; scale_pos_weight XGBoost = 6.21
 - [Phase 2 RESOLVIDO]: Haversine validado em km (max=8677 km, mediana SP->AM=2693 km); threshold ajustado para 10000 km por outliers de CEPs de fronteira
-- [Phase 4]: SHAP TreeExplainer pode levar 10+ min em 100k linhas — testar em amostra de 5000 primeiro
+- [Phase 4 RESOLVIDO]: SHAP TreeExplainer em amostra de 5000 completou sem timeout — beeswarm estavel
 - [Phase 6]: Se Phase 4 nao fechar ate Day 5, demo Streamlit e cortada; slides sao o entregavel nao-negociavel
 
 ## Session Continuity
 
 Last session: 2026-03-01
-Stopped at: Completed 04-02-PLAN.md — XGBoost Pipeline (PR-AUC=0.2283) + models/final_pipeline.joblib + reports/figures/shap_beeswarm.png — commits 5ff90d2, b8d4e05
+Stopped at: Completed 04-03-PLAN.md — sections 5-7 + pr_curve.png + seller table + round-trip verification — commits 4d00ef3, 973c14f — Phase 4 COMPLETE
 Resume file: None
