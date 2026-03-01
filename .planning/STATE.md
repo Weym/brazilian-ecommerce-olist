@@ -2,13 +2,13 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: unknown
-last_updated: "2026-03-01T21:22:00.495Z"
+status: in_progress
+last_updated: "2026-03-01T21:38:39Z"
 progress:
   total_phases: 6
   completed_phases: 1
   total_plans: 21
-  completed_plans: 5
+  completed_plans: 6
 ---
 
 # Project State
@@ -18,35 +18,37 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-01)
 
 **Core value:** Mostrar que e possivel agir antes do problema acontecer — transformar dados historicos de logistica em um sistema de alerta precoce que permite intervencao antes da entrega e da avaliacao ruim.
-**Current focus:** Phase 1 — Kickoff e Contratos
+**Current focus:** Phase 2 — Data Foundation
 
 ## Current Position
 
-Phase: 1 of 6 (Kickoff e Contratos) — COMPLETA
-Plan: 5 of 5 in current phase — COMPLETO
-Status: Phase 1 complete, ready for Phase 2
-Last activity: 2026-03-01 — Plan 01-05 completo: 4 notebooks placeholder + docs/ownership.md com mapa P1-P6
+Phase: 2 of 6 (Data Foundation) — EM PROGRESSO
+Plan: 1 of 3 in current phase — COMPLETO
+Status: Phase 2 Plan 1 complete, ready for Plan 02-02
+Last activity: 2026-03-01 — Plan 02-01 completo: notebook FASE2-P1-data-foundation.ipynb com gold_with_geo (97456, 32) — commit bacc95a
 
-Progress: [██░░░░░░░░] 24%
+Progress: [███░░░░░░░] 29%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 5
+- Total plans completed: 6
 - Average duration: 3min
-- Total execution time: 0h 17min
+- Total execution time: 0h 24min
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 01-kickoff-e-contratos | 5 completed | 17min | ~3min |
+| 02-data-foundation | 1 completed | 7min | ~7min |
 
 **Recent Trend:**
-- Last 5 plans: 01-01 (2min), 01-02 (2min), 01-03 (3min), 01-04 (5min), 01-05 (5min)
-- Trend: stable, documentation phase complete
+- Last 5 plans: 01-02 (2min), 01-03 (3min), 01-04 (5min), 01-05 (5min), 02-01 (7min)
+- Trend: stable, entering execution phase (data+ML)
 
 *Updated after each plan completion*
+| Phase 02 P01 | 6 | 2 tasks | 1 files |
 | Phase 01 P05 | 5 | 2 tasks | 5 files |
 | Phase 01 P04 | 5 | 1 tasks | 1 files |
 | Phase 01 P02 | 3 | 2 tasks | 4 files |
@@ -77,6 +79,10 @@ Recent decisions affecting current work:
 - [01-05]: Notebooks placeholder criados antes do sprint para prevenir conflitos de merge — cada .ipynb existe no git como propriedade de uma pessoa
 - [01-05]: Celula padrao usa Path.cwd().parent como PROJECT_ROOT — funciona quando notebook executado de notebooks/
 - [01-05]: outputs: [] e estado correto pre-execucao nos placeholders — nbstripout filtra no staging sem modificar working copy
+- [02-01]: seller_zip_code_prefix vem como float64 apos merge chain (NaN promove int->float) — converter via Int64 nullable antes de str.zfill(5) para evitar '9350.0' ao inves de '09350'
+- [02-01]: geo_agg tem 19015 linhas unicas de 1000163 (ratio ~52.6x) — assert uniqueness incluido no notebook
+- [02-01]: gold_with_geo (97456, 32) — 1985 pedidos removidos (canceled/unavailable/sem review_score/sem order_approved_at)
+- [02-01]: Cobertura geo: sellers 99.8%, customers 99.7% — valores dentro do esperado para dataset brasileiro
 
 ### Pending Todos
 
@@ -92,5 +98,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-03-01
-Stopped at: Completed 01-05-PLAN.md — 4 notebooks placeholder + docs/ownership.md (2 tasks, 5 files, commits 7129ce0+b912fba)
+Stopped at: Completed 02-01-PLAN.md — notebook FASE2-P1-data-foundation.ipynb com gold_with_geo (97456 linhas, 32 colunas, 2 tasks, 1 file, commit bacc95a)
 Resume file: None

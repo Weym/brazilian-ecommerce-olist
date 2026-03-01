@@ -17,7 +17,7 @@ Requisitos para o desafio relâmpago de 1 semana. Cada um mapeia para fases do r
 
 ### Data Foundation (DATA)
 
-- [ ] **DATA-01**: Tabela analitica "gold" construida com joins de todos os dataframes relevantes da Olist (orders, items, reviews, customers, sellers, geolocation, products, category_translation)
+- [x] **DATA-01**: Tabela analitica "gold" construida com joins de todos os dataframes relevantes da Olist (orders, items, reviews, customers, sellers, geolocation, products, category_translation)
 - [ ] **DATA-02**: Todas as colunas da tabela gold auditadas e tagueadas como `[pre-entrega | pos-entrega | target]`
 - [ ] **DATA-03**: Qualidade validada: nulos, duplicatas, CEPs invalidos e datas inconsistentes documentados e tratados
 - [ ] **DATA-04**: Tabela gold exportada como `.parquet` e disponivel como contrato imutavel para todas as fases downstream
@@ -85,7 +85,7 @@ Deferred para apos o desafio relâmpago.
 | KICK-03 | Phase 1: Kickoff e Contratos | Pendente |
 | KICK-04 | Phase 1: Kickoff e Contratos | Pendente |
 | KICK-05 | Phase 1: Kickoff e Contratos | Pendente |
-| DATA-01 | Phase 2: Data Foundation | Pendente |
+| DATA-01 | Phase 2: Data Foundation | Completo (02-01) |
 | DATA-02 | Phase 2: Data Foundation | Pendente |
 | DATA-03 | Phase 2: Data Foundation | Pendente |
 | DATA-04 | Phase 2: Data Foundation | Pendente |

@@ -52,7 +52,7 @@ Plans:
 **Plans**: 3 plans
 
 Plans:
-- [ ] 02-01-PLAN.md — Load dos 9 CSVs, pre-agregacao de geolocation e join chain principal (1 linha por order_id)
+- [x] 02-01-PLAN.md — Load dos 9 CSVs, pre-agregacao de geolocation e join chain principal (1 linha por order_id)
 - [ ] 02-02-PLAN.md — Feature engineering: distancia Haversine em km, features derivadas, target bad_review e tagging de colunas
 - [ ] 02-03-PLAN.md — Checklist de qualidade, export para data/gold/olist_gold.parquet e docs/data_quality.md
 
@@ -133,7 +133,7 @@ Note: Phases 3 and 4 can run in parallel after Phase 2 is complete. Phase 5 requ
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Kickoff e Contratos | 5/5 | Complete   | 2026-03-01 |
-| 2. Data Foundation | 0/3 | Not started | - |
+| 2. Data Foundation | 1/3 | In progress | - |
 | 3. EDA — Ato 1 | 0/2 | Not started | - |
 | 4. ML — Ato 2 | 0/3 | Not started | - |
 | 5. Narrativa e Slides | 0/3 | Not started | - |
