@@ -31,7 +31,14 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. O repositorio tem estrutura de pastas definida e cada pessoa sabe qual notebook e seu e como nomea-lo
   4. O target do modelo esta documentado como binario: 1-2 estrelas = positivo, 3-5 estrelas = negativo
   5. O recorte temporal (datas de inclusao) e as regras de outlier estao escritos antes da primeira linha de codigo de join
-**Plans**: TBD
+**Plans**: 5 plans
+
+Plans:
+- [ ] 01-01-PLAN.md — Scaffold do repositorio: pastas, .gitattributes, requirements.txt, README.md
+- [ ] 01-02-PLAN.md — Contrato de features: src/features.py + docs/feature_contract.md
+- [ ] 01-03-PLAN.md — Acordo de metricas: docs/metrics_agreement.md (PR-AUC, Recall, rationale)
+- [ ] 01-04-PLAN.md — Kickoff document: docs/kickoff.md (target, ancora temporal, outliers)
+- [ ] 01-05-PLAN.md — Ownership: notebooks placeholder por pessoa + docs/ownership.md
 
 ### Phase 2: Data Foundation
 **Goal**: A tabela gold existe, esta validada e esta disponivel como contrato imutavel para todos os tracks downstream
@@ -42,7 +49,12 @@ Decimal phases appear between their surrounding integers in numeric order.
   2. Um checklist de qualidade de dados documentado mostra: contagem de nulos por coluna, duplicatas verificadas, CEPs invalidos tratados e datas inconsistentes resolvidas
   3. A coluna de distancia vendedor-comprador existe em km (via Haversine), e a distribuicao de valores esta entre 0 e 4000 km (nao em graus decimais)
   4. Qualquer notebook de EDA ou ML pode fazer `pd.read_parquet('data/gold/olist_gold.parquet')` e comecar analise imediatamente, sem nenhum join adicional
-**Plans**: TBD
+**Plans**: 3 plans
+
+Plans:
+- [ ] 02-01-PLAN.md — Load dos 9 CSVs, pre-agregacao de geolocation e join chain principal (1 linha por order_id)
+- [ ] 02-02-PLAN.md — Feature engineering: distancia Haversine em km, features derivadas, target bad_review e tagging de colunas
+- [ ] 02-03-PLAN.md — Checklist de qualidade, export para data/gold/olist_gold.parquet e docs/data_quality.md
 
 ### Phase 3: EDA — Ato 1
 **Goal**: O Ato 1 da apresentacao tem evidencias visuais solidas de que logistica (atraso, frete, rota) degrada a nota do cliente
@@ -54,7 +66,11 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. Existe um mapa/heatmap geografico por UF mostrando onde se concentram as avaliacoes 1-2 estrelas, com `data/processed/geo_aggregated.parquet` exportado
   4. Existe uma analise de rotas/corredores (UF origem x UF destino) identificando os pares com maior concentracao de atrasos
   5. As figuras exportadas estao em `reports/figures/` em formato PNG pronto para uso nos slides
-**Plans**: TBD
+**Plans**: 2 plans
+
+Plans:
+- [ ] 03-01-PLAN.md — Pessoa 3 track: EDA-01 atraso vs nota (boxplot + scatter + Mann-Whitney), EDA-02 frete vs nota, EDA-04 categorias
+- [ ] 03-02-PLAN.md — Pessoa 2 track: EDA-03 choropleth UF + geo_aggregated.parquet, EDA-05 heatmap rotas origem x destino
 
 ### Phase 4: ML — Ato 2
 **Goal**: O Ato 2 da apresentacao tem um modelo de risco pre-entrega funcional, explicavel e operacionalmente acionavel
@@ -66,7 +82,12 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. O pipeline XGBoost existe em `models/final_pipeline.joblib` com PR-AUC superior ao baseline, SHAP beeswarm calculado e os top features identificados
   4. Existe uma curva PR com limiar de decisao selecionado e estimativa operacional concreta: quantos pedidos seriam flagrados por semana e qual o percentual real de risco entre os flagrados
   5. Existe uma tabela de score de risco medio por vendedor que pode ser exibida na apresentacao como recomendacao acionavel
-**Plans**: TBD
+**Plans**: 3 plans
+
+Plans:
+- [ ] 04-01-PLAN.md — Secoes 1-2: Load & feature matrix (ML-01) + Baseline LogReg com PR-AUC e Recall (ML-02)
+- [ ] 04-02-PLAN.md — Secoes 3-4: XGBoost com scale_pos_weight (ML-03) + SHAP TreeExplainer beeswarm PNG (ML-04)
+- [ ] 04-03-PLAN.md — Secoes 5-7: Threshold operacional (ML-05) + tabela de vendedores (ML-06) + verificacao joblib (ML-07)
 
 ### Phase 5: Narrativa e Slides
 **Goal**: O deck de apresentacao conta a historia completa em dois atos e todos os notebooks estao documentados e prontos para auditoria
@@ -99,9 +120,9 @@ Note: Phases 3 and 4 can run in parallel after Phase 2 is complete. Phase 5 requ
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Kickoff e Contratos | 0/TBD | Not started | - |
-| 2. Data Foundation | 0/TBD | Not started | - |
-| 3. EDA — Ato 1 | 0/TBD | Not started | - |
-| 4. ML — Ato 2 | 0/TBD | Not started | - |
+| 1. Kickoff e Contratos | 0/5 | Not started | - |
+| 2. Data Foundation | 0/3 | Not started | - |
+| 3. EDA — Ato 1 | 0/2 | Not started | - |
+| 4. ML — Ato 2 | 0/3 | Not started | - |
 | 5. Narrativa e Slides | 0/TBD | Not started | - |
 | 6. Demo Streamlit e Integracao Final | 0/TBD | Not started | - |
