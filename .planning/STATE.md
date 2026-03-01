@@ -10,28 +10,28 @@ See: .planning/PROJECT.md (updated 2026-03-01)
 ## Current Position
 
 Phase: 1 of 6 (Kickoff e Contratos)
-Plan: 0 of TBD in current phase
-Status: Ready to plan
-Last activity: 2026-03-01 — Roadmap e STATE criados durante inicializacao do projeto
+Plan: 1 of 5 in current phase
+Status: In progress
+Last activity: 2026-03-01 — Plan 01-01 completo: scaffold do repositorio (pastas, .gitattributes, requirements.txt, README.md)
 
-Progress: [░░░░░░░░░░] 0%
+Progress: [█░░░░░░░░░] 3%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 0
-- Average duration: -
-- Total execution time: 0h
+- Total plans completed: 1
+- Average duration: 2min
+- Total execution time: 0h 2min
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
-| - | - | - | - |
+| 01-kickoff-e-contratos | 1 completed | 2min | 2min |
 
 **Recent Trend:**
-- Last 5 plans: -
-- Trend: -
+- Last 5 plans: 01-01 (2min)
+- Trend: establishing baseline
 
 *Updated after each plan completion*
 
@@ -46,6 +46,9 @@ Recent decisions affecting current work:
 - [Kickoff]: Demo em Streamlit com artefatos pre-computados — nenhum processamento pesado ao vivo
 - [Kickoff]: Baseline logistico obrigatorio antes de XGBoost — garante entregavel mesmo se ML avancado nao fechar
 - [Kickoff]: Corte temporal de features = `order_approved_at` (nenhuma variavel pos-entrega no modelo)
+- [01-01]: nbstripout configurado em modo git filter (nao hook) — working copy preservada, outputs filtrados no staging
+- [01-01]: requirements.txt (nao pyproject.toml) escolhido pela simplicidade para sprint de 1 semana
+- [01-01]: src/__init__.py e src/features.py excluidos do Plan 01 — responsabilidade do Plan 02
 
 ### Pending Todos
 
@@ -61,5 +64,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-03-01
-Stopped at: Inicializacao completa — PROJECT.md, REQUIREMENTS.md, research/SUMMARY.md e ROADMAP.md criados
+Stopped at: Completed 01-01-PLAN.md — scaffold do repositorio completo (2 tasks, 12 files, commits e649620 + 544898d)
 Resume file: None

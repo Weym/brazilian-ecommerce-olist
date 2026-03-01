@@ -11,7 +11,7 @@ Requisitos para o desafio relâmpago de 1 semana. Cada um mapeia para fases do r
 
 - [ ] **KICK-01**: Time define e documenta o "contrato de features pre-entrega" — lista explícita de colunas permitidas e proibidas no modelo ML
 - [ ] **KICK-02**: Time acorda as metricas primarias do modelo (PR-AUC e Recall para classe positiva) antes de qualquer codigo
-- [ ] **KICK-03**: Time define ownership de notebooks (convencao de nomes, estrutura de pastas, regras de git)
+- [x] **KICK-03**: Time define ownership de notebooks (convencao de nomes, estrutura de pastas, regras de git)
 - [ ] **KICK-04**: Time define o target do modelo: avaliacao ruim = estrelas 1–2
 - [ ] **KICK-05**: Time define o recorte temporal e regras de outlier antes da construcao da tabela gold
 

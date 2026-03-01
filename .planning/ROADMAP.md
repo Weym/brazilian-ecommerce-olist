@@ -34,7 +34,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Plans**: 5 plans
 
 Plans:
-- [ ] 01-01-PLAN.md — Scaffold do repositorio: pastas, .gitattributes, requirements.txt, README.md
+- [x] 01-01-PLAN.md — Scaffold do repositorio: pastas, .gitattributes, requirements.txt, README.md
 - [ ] 01-02-PLAN.md — Contrato de features: src/features.py + docs/feature_contract.md
 - [ ] 01-03-PLAN.md — Acordo de metricas: docs/metrics_agreement.md (PR-AUC, Recall, rationale)
 - [ ] 01-04-PLAN.md — Kickoff document: docs/kickoff.md (target, ancora temporal, outliers)
@@ -132,7 +132,7 @@ Note: Phases 3 and 4 can run in parallel after Phase 2 is complete. Phase 5 requ
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Kickoff e Contratos | 0/5 | Not started | - |
+| 1. Kickoff e Contratos | 1/5 | In progress | - |
 | 2. Data Foundation | 0/3 | Not started | - |
 | 3. EDA — Ato 1 | 0/2 | Not started | - |
 | 4. ML — Ato 2 | 0/3 | Not started | - |
