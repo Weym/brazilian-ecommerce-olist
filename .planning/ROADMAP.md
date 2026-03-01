@@ -14,7 +14,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Kickoff e Contratos** - Time define contratos explícitos de features, metricas e ownership antes de qualquer codigo (completed 2026-03-01)
 - [x] **Phase 2: Data Foundation** - Tabela gold validada como contrato imutavel que desbloqueia todos os tracks paralelos (completed 2026-03-01)
-- [ ] **Phase 3: EDA — Ato 1** - Visualizacoes e analises que provam como logistica degrada satisfacao do cliente
+- [x] **Phase 3: EDA — Ato 1** - Visualizacoes e analises que provam como logistica degrada satisfacao do cliente (completed 2026-03-01)
 - [ ] **Phase 4: ML — Ato 2** - Pipeline de risco pre-entrega com baseline + XGBoost, SHAP e agregacao por vendedor
 - [ ] **Phase 5: Narrativa e Slides** - Deck com dois atos, notebooks documentados e relatorio escrito
 - [ ] **Phase 6: Demo Streamlit e Integracao Final** - App multi-pagina carregando artefatos pre-computados, testada e pronta para apresentacao
@@ -134,7 +134,7 @@ Note: Phases 3 and 4 can run in parallel after Phase 2 is complete. Phase 5 requ
 |-------|----------------|--------|-----------|
 | 1. Kickoff e Contratos | 5/5 | Complete   | 2026-03-01 |
 | 2. Data Foundation | 3/3 | Complete   | 2026-03-01 |
-| 3. EDA — Ato 1 | 0/2 | Not started | - |
+| 3. EDA — Ato 1 | 2/2 | Complete   | 2026-03-01 |
 | 4. ML — Ato 2 | 0/3 | Not started | - |
 | 5. Narrativa e Slides | 0/3 | Not started | - |
 | 6. Demo Streamlit e Integracao Final | 0/5 | Not started | - |

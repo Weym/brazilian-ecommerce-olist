@@ -25,11 +25,11 @@ Requisitos para o desafio relâmpago de 1 semana. Cada um mapeia para fases do r
 
 ### EDA — Ato 1: Impacto da Logistica (EDA)
 
-- [ ] **EDA-01**: Analise visual de atraso (dias de atraso) vs. nota de avaliacao (scatter + boxplot)
-- [ ] **EDA-02**: Analise visual de frete (valor absoluto e % do pedido) vs. nota de avaliacao
-- [ ] **EDA-03**: Mapa/heatmap geografico por UF mostrando concentracao de avaliacoes 1–2 estrelas
-- [ ] **EDA-04**: Segmentacao de avaliacoes ruins por categoria de produto (top categorias problematicas)
-- [ ] **EDA-05**: Analise de rotas/regioes com maior concentracao de atrasos (origem x destino)
+- [x] **EDA-01**: Analise visual de atraso (dias de atraso) vs. nota de avaliacao (scatter + boxplot)
+- [x] **EDA-02**: Analise visual de frete (valor absoluto e % do pedido) vs. nota de avaliacao
+- [x] **EDA-03**: Mapa/heatmap geografico por UF mostrando concentracao de avaliacoes 1–2 estrelas
+- [x] **EDA-04**: Segmentacao de avaliacoes ruins por categoria de produto (top categorias problematicas)
+- [x] **EDA-05**: Analise de rotas/regioes com maior concentracao de atrasos (origem x destino)
 
 ### ML — Ato 2: Modelo de Risco Pre-Entrega (ML)
 

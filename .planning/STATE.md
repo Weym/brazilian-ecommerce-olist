@@ -3,12 +3,12 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-last_updated: "2026-03-01T22:01:49.822Z"
+last_updated: "2026-03-01T22:10:12.949Z"
 progress:
   total_phases: 6
-  completed_phases: 2
+  completed_phases: 3
   total_plans: 21
-  completed_plans: 8
+  completed_plans: 10
 ---
 
 # Project State
@@ -18,16 +18,16 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-01)
 
 **Core value:** Mostrar que e possivel agir antes do problema acontecer — transformar dados historicos de logistica em um sistema de alerta precoce que permite intervencao antes da entrega e da avaliacao ruim.
-**Current focus:** Phase 2 — Data Foundation
+**Current focus:** Phase 3 — EDA Ato 1
 
 ## Current Position
 
-Phase: 2 of 6 (Data Foundation) — COMPLETO
-Plan: 3 of 3 in current phase — COMPLETO
-Status: Phase 2 complete — all 3 plans done; ready for Phase 3 (EDA Ato 1)
-Last activity: 2026-03-01 — Plan 02-03 completo: olist_gold.parquet (97456, 38) exportado, data_quality.md criado, smoke test passou — commits 85e059a, a7c430b
+Phase: 3 of 6 (EDA Ato 1) — EM ANDAMENTO
+Plan: 1 of 2 in current phase — COMPLETO
+Status: Plan 03-01 complete — EDA-01/02/04 PNGs exportados; pronto para Plan 03-02
+Last activity: 2026-03-01 — Plan 03-01 completo: 4 PNGs EDA (Mann-Whitney p=0.00e+00, Spearman r=-0.088) — commits 03782d4, 3687a54, e9d622d
 
-Progress: [█████░░░░░] 38%
+Progress: [██████░░░░] 43%
 
 ## Performance Metrics
 
@@ -54,6 +54,8 @@ Progress: [█████░░░░░] 38%
 | Phase 01 P02 | 3 | 2 tasks | 4 files |
 | Phase 02-data-foundation P02 | 14 | 2 tasks | 1 files |
 | Phase 02-data-foundation P03 | 15 | 2 tasks | 3 files |
+| Phase 03-eda-ato-1 P03-01 | 6 | 3 tasks | 5 files |
+| Phase 03-eda-ato-1 P02 | 15 | 2 tasks | 6 files |
 
 ## Accumulated Context
 
@@ -95,6 +97,10 @@ Recent decisions affecting current work:
 - [Phase 02-03]: seller_id 3 nulls (0.003%) accepted — critical columns (order_id, bad_review, customer_id) all zero nulls
 - [Phase 02-03]: olist_gold.parquet frozen contract: 97456 rows x 38 cols, bad_review=13.9%, scale_pos_weight=6.2, distance max=8677 km confirmed in km
 - [Phase 02-03]: Smoke test distance threshold = 10000 km (not 6000) — Olist geo border prefixes produce up to 8677 km, already decided in Phase 02-02
+- [Phase 03-eda-ato-1]: payment_value usado como denominador para frete_pct_pedido — price ausente na gold table
+- [Phase 03-eda-ato-1]: review_score e float64 na gold (cast defensivo para int obrigatorio antes de boxplot)
+- [Phase 03-eda-ato-1]: EDA-04 kaleido indisponivel — seaborn fallback usado; resultado identico em qualidade
+- [Phase 03-eda-ato-1]: GeoJSON campo sigla='sigla' detectado via auto-probe; Timestamp columns removidas antes de folium __geo_interface__; kaleido/Chrome indisponivel no ambiente Windows — fallback geopandas usado para PNG choropleth; atraso medio negativo (-11.9 dias) em todos os corredores — prazo estimado conservador
 
 ### Pending Todos
 
@@ -110,5 +116,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-03-01
-Stopped at: Completed 02-03-PLAN.md — olist_gold.parquet (97456, 38) exportado + data_quality.md + smoke test passou — commits 85e059a, a7c430b; Phase 2 COMPLETE
+Stopped at: Completed 03-01-PLAN.md — 4 PNGs EDA-01/02/04 exportados (Mann-Whitney p=0.00e+00, Spearman r=-0.088, top-3 cats: bed_bath_table/health_beauty/computers_accessories) — commits 03782d4, 3687a54, e9d622d
 Resume file: None
