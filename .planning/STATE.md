@@ -3,12 +3,12 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-last_updated: "2026-03-01T22:14:44.625Z"
+last_updated: "2026-03-01T23:00:58.274Z"
 progress:
   total_phases: 6
   completed_phases: 3
   total_plans: 21
-  completed_plans: 10
+  completed_plans: 11
 ---
 
 # Project State
@@ -18,16 +18,16 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-01)
 
 **Core value:** Mostrar que e possivel agir antes do problema acontecer — transformar dados historicos de logistica em um sistema de alerta precoce que permite intervencao antes da entrega e da avaliacao ruim.
-**Current focus:** Phase 3 — EDA Ato 1
+**Current focus:** Phase 4 — ML Pipeline (Ato 2)
 
 ## Current Position
 
-Phase: 3 of 6 (EDA Ato 1) — COMPLETO
-Plan: 2 of 2 in current phase — COMPLETO
-Status: Phase 3 complete — all 2 plans done; ready for Phase 4 (ML Pipeline)
-Last activity: 2026-03-01 — Plan 03-02 completo: geo_aggregated.parquet (27 UFs, bad_review_rate 0.075-0.238) + choropleth PNG (113KB) + heatmap rotas (99KB) — commits 73e47dd, ab10216
+Phase: 4 of 6 (ML Pipeline) — IN PROGRESS
+Plan: 1 of 3 in current phase — COMPLETO
+Status: Plan 04-01 complete — baseline LogReg trained (PR-AUC=0.2207), models/baseline_logreg.joblib serialized; ready for Plan 04-02 (XGBoost + SHAP)
+Last activity: 2026-03-01 — Plan 04-01 completo: FASE4-P4-ml-pipeline.ipynb (secoes 1-2) + baseline_logreg.joblib + gold enriched — commits 8132a98, 4c29835
 
-Progress: [███████░░░] 48%
+Progress: [████████░░] 52%
 
 ## Performance Metrics
 
@@ -56,6 +56,7 @@ Progress: [███████░░░] 48%
 | Phase 02-data-foundation P03 | 15 | 2 tasks | 3 files |
 | Phase 03-eda-ato-1 P03-01 | 6 | 3 tasks | 5 files |
 | Phase 03-eda-ato-1 P02 | 15 | 2 tasks | 6 files |
+| Phase 04-ml-ato-2 P04-01 | 18 | 2 tasks | 6 files |
 
 ## Accumulated Context
 
@@ -101,6 +102,9 @@ Recent decisions affecting current work:
 - [Phase 03-eda-ato-1]: review_score e float64 na gold (cast defensivo para int obrigatorio antes de boxplot)
 - [Phase 03-eda-ato-1]: EDA-04 kaleido indisponivel — seaborn fallback usado; resultado identico em qualidade
 - [Phase 03-eda-ato-1]: GeoJSON campo sigla='sigla' detectado via auto-probe; Timestamp columns removidas antes de folium __geo_interface__; kaleido/Chrome indisponivel no ambiente Windows — fallback geopandas usado para PNG choropleth; atraso medio negativo (-11.9 dias) em todos os corredores — prazo estimado conservador
+- [Phase 04-ml-ato-2]: SimpleImputer(median/most_frequent) added to ColumnTransformer sub-pipelines — gold enrichment introduced 3-4 NaN rows that LogisticRegression cannot handle natively
+- [Phase 04-ml-ato-2]: Gold table enriched with 5 missing PRE_DELIVERY_FEATURES: price, estimated_delivery_days, order_item_count, payment_type, payment_installments — Phase 2 omitted these from parquet
+- [Phase 04-ml-ato-2]: Baseline PR-AUC=0.2207, Recall(bad_review)=0.53 — floor metric; XGBoost must beat this in Plan 04-02
 
 ### Pending Todos
 
@@ -116,5 +120,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-03-01
-Stopped at: Completed 03-02-PLAN.md — geo_aggregated.parquet (27 UFs) + choropleth PNG + heatmap rotas — commits 73e47dd, ab10216; Phase 3 COMPLETE
+Stopped at: Completed 04-01-PLAN.md — baseline LogReg Pipeline (PR-AUC=0.2207) + models/baseline_logreg.joblib + gold enriched with 5 missing PRE_DELIVERY_FEATURES — commits 8132a98, 4c29835
 Resume file: None

@@ -33,8 +33,8 @@ Requisitos para o desafio relâmpago de 1 semana. Cada um mapeia para fases do r
 
 ### ML — Ato 2: Modelo de Risco Pre-Entrega (ML)
 
-- [ ] **ML-01**: Pipeline de features com apenas variaveis disponiveis ate o momento de expedicao (sem vazamento)
-- [ ] **ML-02**: Baseline logistico treinado e avaliado com PR-AUC e Recall (obrigatorio antes de modelos complexos)
+- [x] **ML-01**: Pipeline de features com apenas variaveis disponiveis ate o momento de expedicao (sem vazamento)
+- [x] **ML-02**: Baseline logistico treinado e avaliado com PR-AUC e Recall (obrigatorio antes de modelos complexos)
 - [ ] **ML-03**: Modelo XGBoost treinado com as mesmas features pre-entrega
 - [ ] **ML-04**: SHAP values calculados para explicar as features mais importantes do modelo XGBoost
 - [ ] **ML-05**: Limiar de decisao definido com impacto operacional estimado (pedidos flagrados/semana, % real de risco)

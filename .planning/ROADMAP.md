@@ -135,6 +135,6 @@ Note: Phases 3 and 4 can run in parallel after Phase 2 is complete. Phase 5 requ
 | 1. Kickoff e Contratos | 5/5 | Complete   | 2026-03-01 |
 | 2. Data Foundation | 3/3 | Complete   | 2026-03-01 |
 | 3. EDA — Ato 1 | 2/2 | Complete   | 2026-03-01 |
-| 4. ML — Ato 2 | 0/3 | Not started | - |
+| 4. ML — Ato 2 | 1/3 | In Progress|  |
 | 5. Narrativa e Slides | 0/3 | Not started | - |
 | 6. Demo Streamlit e Integracao Final | 0/5 | Not started | - |
