@@ -35,8 +35,8 @@ Requisitos para o desafio relâmpago de 1 semana. Cada um mapeia para fases do r
 
 - [x] **ML-01**: Pipeline de features com apenas variaveis disponiveis ate o momento de expedicao (sem vazamento)
 - [x] **ML-02**: Baseline logistico treinado e avaliado com PR-AUC e Recall (obrigatorio antes de modelos complexos)
-- [ ] **ML-03**: Modelo XGBoost treinado com as mesmas features pre-entrega
-- [ ] **ML-04**: SHAP values calculados para explicar as features mais importantes do modelo XGBoost
+- [x] **ML-03**: Modelo XGBoost treinado com as mesmas features pre-entrega
+- [x] **ML-04**: SHAP values calculados para explicar as features mais importantes do modelo XGBoost
 - [ ] **ML-05**: Limiar de decisao definido com impacto operacional estimado (pedidos flagrados/semana, % real de risco)
 - [ ] **ML-06**: Agregacao de score de risco medio por vendedor (operacionalmente acionavel)
 - [ ] **ML-07**: Pipeline sklearn serializado como `.joblib` para uso na demo Streamlit sem reprocessamento ao vivo

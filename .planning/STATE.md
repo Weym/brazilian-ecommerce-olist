@@ -8,7 +8,7 @@ progress:
   total_phases: 6
   completed_phases: 3
   total_plans: 21
-  completed_plans: 11
+  completed_plans: 12
 ---
 
 # Project State
@@ -23,11 +23,11 @@ See: .planning/PROJECT.md (updated 2026-03-01)
 ## Current Position
 
 Phase: 4 of 6 (ML Pipeline) — IN PROGRESS
-Plan: 1 of 3 in current phase — COMPLETO
-Status: Plan 04-01 complete — baseline LogReg trained (PR-AUC=0.2207), models/baseline_logreg.joblib serialized; ready for Plan 04-02 (XGBoost + SHAP)
-Last activity: 2026-03-01 — Plan 04-01 completo: FASE4-P4-ml-pipeline.ipynb (secoes 1-2) + baseline_logreg.joblib + gold enriched — commits 8132a98, 4c29835
+Plan: 2 of 3 in current phase — COMPLETO
+Status: Plan 04-02 complete — XGBoost Pipeline trained (PR-AUC=0.2283 > baseline 0.2207), models/final_pipeline.joblib serialized, SHAP beeswarm PNG generated; ready for Plan 04-03 (threshold tuning + seller table)
+Last activity: 2026-03-01 — Plan 04-02 completo: FASE4-P4-ml-pipeline.ipynb (secoes 3-4) + final_pipeline.joblib + shap_beeswarm.png — commits 5ff90d2, b8d4e05
 
-Progress: [████████░░] 52%
+Progress: [████████░░] 57%
 
 ## Performance Metrics
 
@@ -57,6 +57,7 @@ Progress: [████████░░] 52%
 | Phase 03-eda-ato-1 P03-01 | 6 | 3 tasks | 5 files |
 | Phase 03-eda-ato-1 P02 | 15 | 2 tasks | 6 files |
 | Phase 04-ml-ato-2 P04-01 | 18 | 2 tasks | 6 files |
+| Phase 04-ml-ato-2 P04-02 | 6 | 2 tasks | 3 files |
 
 ## Accumulated Context
 
@@ -105,6 +106,9 @@ Recent decisions affecting current work:
 - [Phase 04-ml-ato-2]: SimpleImputer(median/most_frequent) added to ColumnTransformer sub-pipelines — gold enrichment introduced 3-4 NaN rows that LogisticRegression cannot handle natively
 - [Phase 04-ml-ato-2]: Gold table enriched with 5 missing PRE_DELIVERY_FEATURES: price, estimated_delivery_days, order_item_count, payment_type, payment_installments — Phase 2 omitted these from parquet
 - [Phase 04-ml-ato-2]: Baseline PR-AUC=0.2207, Recall(bad_review)=0.53 — floor metric; XGBoost must beat this in Plan 04-02
+- [Phase 04-ml-ato-2]: XGBoost PR-AUC=0.2283 > baseline 0.2207 — confirmed superior before Ato 2 presentation; scale_pos_weight=6.18 from y_train
+- [Phase 04-ml-ato-2]: Top SHAP features: order_item_count (0.188), customer_state_RJ (0.101), seller_customer_distance_km (0.098) — pre-delivery risk drivers
+- [Phase 04-ml-ato-2]: SHAP capped at 5000 sample of 19492 test rows for performance; TreeExplainer used (not generic shap.Explainer)
 
 ### Pending Todos
 
@@ -120,5 +124,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-03-01
-Stopped at: Completed 04-01-PLAN.md — baseline LogReg Pipeline (PR-AUC=0.2207) + models/baseline_logreg.joblib + gold enriched with 5 missing PRE_DELIVERY_FEATURES — commits 8132a98, 4c29835
+Stopped at: Completed 04-02-PLAN.md — XGBoost Pipeline (PR-AUC=0.2283) + models/final_pipeline.joblib + reports/figures/shap_beeswarm.png — commits 5ff90d2, b8d4e05
 Resume file: None
