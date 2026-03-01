@@ -3,7 +3,7 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-last_updated: "2026-03-01T21:13:51.244Z"
+last_updated: "2026-03-01T21:13:56.668Z"
 progress:
   total_phases: 6
   completed_phases: 0
@@ -23,27 +23,27 @@ See: .planning/PROJECT.md (updated 2026-03-01)
 ## Current Position
 
 Phase: 1 of 6 (Kickoff e Contratos)
-Plan: 3 of 5 in current phase
+Plan: 4 of 5 in current phase
 Status: In progress
-Last activity: 2026-03-01 — Plan 01-03 completo: docs/metrics_agreement.md — acordo formal de metricas (PR-AUC, Recall, politica de limiar, baseline logistico)
+Last activity: 2026-03-01 — Plan 01-04 completo: docs/kickoff.md — documento de kickoff com target bad_review, ancora temporal order_approved_at e regras de outlier
 
-Progress: [██░░░░░░░░] 7%
+Progress: [██░░░░░░░░] 10%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 3
+- Total plans completed: 4
 - Average duration: 3min
-- Total execution time: 0h 7min
+- Total execution time: 0h 12min
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
-| 01-kickoff-e-contratos | 3 completed | 7min | ~2-3min |
+| 01-kickoff-e-contratos | 4 completed | 12min | ~3min |
 
 **Recent Trend:**
-- Last 5 plans: 01-01 (2min), 01-02 (2min), 01-03 (3min)
+- Last 5 plans: 01-01 (2min), 01-02 (2min), 01-03 (3min), 01-04 (5min)
 - Trend: stable, documentation phase
 
 *Updated after each plan completion*
@@ -66,6 +66,10 @@ Recent decisions affecting current work:
 - [01-03]: PR-AUC e Recall definidos como unicas headline metrics — Accuracy e ROC-AUC explicitamente proibidos por enganarem em datasets desbalanceados
 - [01-03]: Limiar de decisao nao e 0.5 — escolhido na curva PR da Phase 4, criterio F1 ou acionabilidade operacional
 - [01-03]: Baseline logistico com class_weight='balanced' obrigatorio antes de XGBoost — garante entregavel e valida valor do modelo avancado
+- [Phase 01]: Target = bad_review: review_score in {1,2} -> 1, caso contrario 0 (int8)
+- [Phase 01]: Ancora temporal = order_approved_at (nao order_purchase_timestamp)
+- [Phase 01]: Outlier de frete: flaggar com high_freight_flag, nao remover
+- [Phase 01]: Outlier de prazo >30 dias: incluir na EDA; Phase 4 decide tratamento para ML
 
 ### Pending Todos
 
@@ -81,5 +85,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-03-01
-Stopped at: Completed 01-03-PLAN.md — docs/metrics_agreement.md criado (1 task, 1 file, commit 460b8e4)
+Stopped at: Completed 01-04-PLAN.md — docs/kickoff.md criado (1 task, 1 file, commit 7129ce0)
 Resume file: None

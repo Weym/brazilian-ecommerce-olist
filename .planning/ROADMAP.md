@@ -132,7 +132,7 @@ Note: Phases 3 and 4 can run in parallel after Phase 2 is complete. Phase 5 requ
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Kickoff e Contratos | 3/5 | In Progress|  |
+| 1. Kickoff e Contratos | 4/5 | In Progress|  |
 | 2. Data Foundation | 0/3 | Not started | - |
 | 3. EDA — Ato 1 | 0/2 | Not started | - |
 | 4. ML — Ato 2 | 0/3 | Not started | - |
