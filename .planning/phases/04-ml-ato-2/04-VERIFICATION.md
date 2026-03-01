@@ -43,6 +43,20 @@ The gap was not a code bug — it was a model performance characteristic where P
 
 ---
 
+## Decisão Documentada: Aceitação da Limitação de Recall
+
+**Decisão:** Aceitar Recall=0.02 como limitação operacional esperada do modelo.
+
+**Fundamento técnico:** A curva Precision-Recall do XGBoost (PR-AUC=0.2283) reflete a dificuldade inerente do problema — classe positiva com 13,9% de frequência e sinal fraco nos dados pré-entrega. Ao longo de toda a curva PR, não existe threshold que satisfaça simultaneamente Precision >= 0.40 e Recall >= 0.60. Isso não é falha de implementação: é o teto de desempenho acessível com as features disponíveis antes da expedição do pedido.
+
+**Por que não retreinar:** Nenhuma técnica alternativa (threshold menor, oversampling, modelo diferente) foi identificada como capaz de superar essa barreira sem violar o critério de anti-leakage (uso exclusivo de PRE_DELIVERY_FEATURES). Sacrificar Precision para ganhar Recall produziria um modelo com muitos falsos positivos — inviável operacionalmente.
+
+**Consequência operacional aceita:** O modelo opera em modo de alta precisão, baixo recall. A cada semana, aproximadamente 8 pedidos são sinalizados com 40% de probabilidade de ser risco real de má avaliação — "cirurgia, não rastreio em massa".
+
+**Como será abordado na narrativa de negócios (Phase 5):** A limitação de Recall será apresentada na narrativa do Ato 2 como uma escolha estratégica consciente, não como fraqueza do modelo. O framing recomendado em `docs/ml_limitations.md` é: *"Escolhemos precisão: quando o modelo alerta, vale investigar. Não tentamos capturar tudo — focamos no que capturamos bem."* Um apêndice técnico com a curva PR completa ficará disponível para audiência técnica. A Phase 5 deve referenciar `docs/ml_limitations.md` para garantir consistência entre o deck e os artefatos produzidos nesta fase.
+
+---
+
 ## Goal Achievement
 
 The phase goal ("funcional, explicavel e operacionalmente acionavel") is fully achieved:
