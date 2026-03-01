@@ -18,10 +18,10 @@ Requisitos para o desafio relâmpago de 1 semana. Cada um mapeia para fases do r
 ### Data Foundation (DATA)
 
 - [x] **DATA-01**: Tabela analitica "gold" construida com joins de todos os dataframes relevantes da Olist (orders, items, reviews, customers, sellers, geolocation, products, category_translation)
-- [ ] **DATA-02**: Todas as colunas da tabela gold auditadas e tagueadas como `[pre-entrega | pos-entrega | target]`
+- [x] **DATA-02**: Todas as colunas da tabela gold auditadas e tagueadas como `[pre-entrega | pos-entrega | target]`
 - [ ] **DATA-03**: Qualidade validada: nulos, duplicatas, CEPs invalidos e datas inconsistentes documentados e tratados
 - [ ] **DATA-04**: Tabela gold exportada como `.parquet` e disponivel como contrato imutavel para todas as fases downstream
-- [ ] **DATA-05**: Distancia aproximada entre vendedor e comprador calculada via Haversine em km (nao graus decimais) e integrada a tabela gold
+- [x] **DATA-05**: Distancia aproximada entre vendedor e comprador calculada via Haversine em km (nao graus decimais) e integrada a tabela gold
 
 ### EDA — Ato 1: Impacto da Logistica (EDA)
 

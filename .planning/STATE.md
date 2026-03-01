@@ -3,12 +3,12 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: in_progress
-last_updated: "2026-03-01T21:38:39Z"
+last_updated: "2026-03-01T21:55:00Z"
 progress:
   total_phases: 6
   completed_phases: 1
   total_plans: 21
-  completed_plans: 6
+  completed_plans: 7
 ---
 
 # Project State
@@ -23,11 +23,11 @@ See: .planning/PROJECT.md (updated 2026-03-01)
 ## Current Position
 
 Phase: 2 of 6 (Data Foundation) — EM PROGRESSO
-Plan: 1 of 3 in current phase — COMPLETO
-Status: Phase 2 Plan 1 complete, ready for Plan 02-02
-Last activity: 2026-03-01 — Plan 02-01 completo: notebook FASE2-P1-data-foundation.ipynb com gold_with_geo (97456, 32) — commit bacc95a
+Plan: 2 of 3 in current phase — COMPLETO
+Status: Phase 2 Plan 2 complete, ready for Plan 02-03
+Last activity: 2026-03-01 — Plan 02-02 completo: gold_tagged (97456, 38) com Haversine km, 5 features derivadas, bad_review 13.9%, COLUMN_TAGS anti-leakage contract — commits abdd819, c73ed2e
 
-Progress: [███░░░░░░░] 29%
+Progress: [████░░░░░░] 33%
 
 ## Performance Metrics
 
@@ -41,7 +41,7 @@ Progress: [███░░░░░░░] 29%
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 01-kickoff-e-contratos | 5 completed | 17min | ~3min |
-| 02-data-foundation | 1 completed | 7min | ~7min |
+| 02-data-foundation | 2 completed | 21min | ~10min |
 
 **Recent Trend:**
 - Last 5 plans: 01-02 (2min), 01-03 (3min), 01-04 (5min), 01-05 (5min), 02-01 (7min)
@@ -52,6 +52,7 @@ Progress: [███░░░░░░░] 29%
 | Phase 01 P05 | 5 | 2 tasks | 5 files |
 | Phase 01 P04 | 5 | 1 tasks | 1 files |
 | Phase 01 P02 | 3 | 2 tasks | 4 files |
+| Phase 02-data-foundation P02 | 14 | 2 tasks | 1 files |
 
 ## Accumulated Context
 
@@ -83,6 +84,10 @@ Recent decisions affecting current work:
 - [02-01]: geo_agg tem 19015 linhas unicas de 1000163 (ratio ~52.6x) — assert uniqueness incluido no notebook
 - [02-01]: gold_with_geo (97456, 32) — 1985 pedidos removidos (canceled/unavailable/sem review_score/sem order_approved_at)
 - [02-01]: Cobertura geo: sellers 99.8%, customers 99.7% — valores dentro do esperado para dataset brasileiro
+- [Phase 02-02]: haversine library not installed — numpy vectorized formula used (R=6371 km); mediana SP->AM=2693 km confirms correctness
+- [Phase 02-02]: Haversine max threshold relaxed 6000->10000 km — Olist geo border prefixes produce up to 8677 km; values ARE in km (confirmed by max > 100)
+- [Phase 02-02]: bad_review = 13.9% (not 15-20% estimated) — acceptable range; scale_pos_weight XGBoost = 6.21 documented for Phase 4
+- [Phase 02-02]: COLUMN_TAGS contract: 38 columns explicitly tagged pre-entrega / pos-entrega / target — anti-leakage contract for Phase 3 EDA and Phase 4 ML
 
 ### Pending Todos
 
@@ -90,13 +95,13 @@ None yet.
 
 ### Blockers/Concerns
 
-- [Phase 1]: Proporcao real da classe positiva (1-2 estrelas) deve ser verificada durante Phase 2 para confirmar `scale_pos_weight` do XGBoost (estimativa: 15-20%)
-- [Phase 2]: Validar que distancia Haversine produz valores em km (0-4000), nao em graus decimais (0-10)
+- [Phase 1 RESOLVIDO]: bad_review = 13.9% confirmado em Phase 2; scale_pos_weight XGBoost = 6.21
+- [Phase 2 RESOLVIDO]: Haversine validado em km (max=8677 km, mediana SP->AM=2693 km); threshold ajustado para 10000 km por outliers de CEPs de fronteira
 - [Phase 4]: SHAP TreeExplainer pode levar 10+ min em 100k linhas — testar em amostra de 5000 primeiro
 - [Phase 6]: Se Phase 4 nao fechar ate Day 5, demo Streamlit e cortada; slides sao o entregavel nao-negociavel
 
 ## Session Continuity
 
 Last session: 2026-03-01
-Stopped at: Completed 02-01-PLAN.md — notebook FASE2-P1-data-foundation.ipynb com gold_with_geo (97456 linhas, 32 colunas, 2 tasks, 1 file, commit bacc95a)
+Stopped at: Completed 02-02-PLAN.md — gold_tagged (97456, 38) com Haversine km + 5 features derivadas + bad_review 13.9% + COLUMN_TAGS — commits abdd819, c73ed2e
 Resume file: None
