@@ -2,8 +2,8 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: unknown
-last_updated: "2026-03-01T21:15:25.567Z"
+status: in_progress
+last_updated: "2026-03-01T21:20:00.000Z"
 progress:
   total_phases: 6
   completed_phases: 1
@@ -22,31 +22,32 @@ See: .planning/PROJECT.md (updated 2026-03-01)
 
 ## Current Position
 
-Phase: 1 of 6 (Kickoff e Contratos)
-Plan: 4 of 5 in current phase
-Status: In progress
-Last activity: 2026-03-01 — Plan 01-04 completo: docs/kickoff.md — documento de kickoff com target bad_review, ancora temporal order_approved_at e regras de outlier
+Phase: 1 of 6 (Kickoff e Contratos) — COMPLETA
+Plan: 5 of 5 in current phase — COMPLETO
+Status: Phase 1 complete, ready for Phase 2
+Last activity: 2026-03-01 — Plan 01-05 completo: 4 notebooks placeholder + docs/ownership.md com mapa P1-P6
 
-Progress: [██░░░░░░░░] 10%
+Progress: [██░░░░░░░░] 24%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 4
+- Total plans completed: 5
 - Average duration: 3min
-- Total execution time: 0h 12min
+- Total execution time: 0h 17min
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
-| 01-kickoff-e-contratos | 4 completed | 12min | ~3min |
+| 01-kickoff-e-contratos | 5 completed | 17min | ~3min |
 
 **Recent Trend:**
-- Last 5 plans: 01-01 (2min), 01-02 (2min), 01-03 (3min), 01-04 (5min)
-- Trend: stable, documentation phase
+- Last 5 plans: 01-01 (2min), 01-02 (2min), 01-03 (3min), 01-04 (5min), 01-05 (5min)
+- Trend: stable, documentation phase complete
 
 *Updated after each plan completion*
+| Phase 01 P05 | 5 | 2 tasks | 5 files |
 | Phase 01 P04 | 5 | 1 tasks | 1 files |
 | Phase 01 P02 | 3 | 2 tasks | 4 files |
 
@@ -73,6 +74,9 @@ Recent decisions affecting current work:
 - [Phase 01]: Outlier de prazo >30 dias: incluir na EDA; Phase 4 decide tratamento para ML
 - [Phase 01-kickoff-e-contratos]: PRE_DELIVERY_FEATURES has exactly 13 columns with temporal anchor order_approved_at (blocked decision)
 - [Phase 01-kickoff-e-contratos]: seller_customer_distance_km declared in Phase 1 contract even though computed in Phase 2 (Haversine)
+- [01-05]: Notebooks placeholder criados antes do sprint para prevenir conflitos de merge — cada .ipynb existe no git como propriedade de uma pessoa
+- [01-05]: Celula padrao usa Path.cwd().parent como PROJECT_ROOT — funciona quando notebook executado de notebooks/
+- [01-05]: outputs: [] e estado correto pre-execucao nos placeholders — nbstripout filtra no staging sem modificar working copy
 
 ### Pending Todos
 
@@ -88,5 +92,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-03-01
-Stopped at: Completed 01-02-PLAN.md — src/features.py e docs/feature_contract.md (2 tasks + TDD, 4 files, commits d0ccf39+dc08d2f+dbe0b1e)
+Stopped at: Completed 01-05-PLAN.md — 4 notebooks placeholder + docs/ownership.md (2 tasks, 5 files, commits 7129ce0+b912fba)
 Resume file: None
