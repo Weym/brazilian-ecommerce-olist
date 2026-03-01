@@ -114,7 +114,14 @@ Plans:
   3. A pagina de mapa tem filtros por UF/rota funcionando interativamente usando o arquivo `data/processed/geo_aggregated.parquet` pre-computado
   4. A pagina de EDA exibe os graficos principais do Ato 1 de forma navegavel, carregados de artefatos estaticos
   5. Uma simulacao completa da demo foi feita na maquina de apresentacao sem timeout, erro ou carregamento lento
-**Plans**: TBD
+**Plans**: 5 plans
+
+Plans:
+- [ ] 06-01-PLAN.md — Wave 1: app.py + utils/loaders.py + pages/1_Home.py + requirements.txt + GeoJSON local
+- [ ] 06-02-PLAN.md — Wave 1 (paralelo): pages/2_Preditor.py — formulario 5 inputs + gauge Plotly + acao recomendada
+- [ ] 06-03-PLAN.md — Wave 2: pages/3_Mapa.py — choropleth + 4 filtros interativos + hover 3 metricas
+- [ ] 06-04-PLAN.md — Wave 2 (paralelo): pages/4_EDA.py — PNGs estaticos + st.selectbox navigation
+- [ ] 06-05-PLAN.md — Wave 3: Smoke test local + deploy Streamlit Cloud + docs/demo_checklist.md
 
 ## Progress
 
@@ -130,4 +137,4 @@ Note: Phases 3 and 4 can run in parallel after Phase 2 is complete. Phase 5 requ
 | 3. EDA — Ato 1 | 0/2 | Not started | - |
 | 4. ML — Ato 2 | 0/3 | Not started | - |
 | 5. Narrativa e Slides | 0/3 | Not started | - |
-| 6. Demo Streamlit e Integracao Final | 0/TBD | Not started | - |
+| 6. Demo Streamlit e Integracao Final | 0/5 | Not started | - |
