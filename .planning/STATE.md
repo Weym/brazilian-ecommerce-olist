@@ -1,3 +1,16 @@
+---
+gsd_state_version: 1.0
+milestone: v1.0
+milestone_name: milestone
+status: unknown
+last_updated: "2026-03-01T21:13:51.244Z"
+progress:
+  total_phases: 6
+  completed_phases: 0
+  total_plans: 21
+  completed_plans: 3
+---
+
 # Project State
 
 ## Project Reference
@@ -10,30 +23,31 @@ See: .planning/PROJECT.md (updated 2026-03-01)
 ## Current Position
 
 Phase: 1 of 6 (Kickoff e Contratos)
-Plan: 1 of 5 in current phase
+Plan: 3 of 5 in current phase
 Status: In progress
-Last activity: 2026-03-01 — Plan 01-01 completo: scaffold do repositorio (pastas, .gitattributes, requirements.txt, README.md)
+Last activity: 2026-03-01 — Plan 01-03 completo: docs/metrics_agreement.md — acordo formal de metricas (PR-AUC, Recall, politica de limiar, baseline logistico)
 
-Progress: [█░░░░░░░░░] 3%
+Progress: [██░░░░░░░░] 7%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 1
-- Average duration: 2min
-- Total execution time: 0h 2min
+- Total plans completed: 3
+- Average duration: 3min
+- Total execution time: 0h 7min
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
-| 01-kickoff-e-contratos | 1 completed | 2min | 2min |
+| 01-kickoff-e-contratos | 3 completed | 7min | ~2-3min |
 
 **Recent Trend:**
-- Last 5 plans: 01-01 (2min)
-- Trend: establishing baseline
+- Last 5 plans: 01-01 (2min), 01-02 (2min), 01-03 (3min)
+- Trend: stable, documentation phase
 
 *Updated after each plan completion*
+| Phase 01 P04 | 5 | 1 tasks | 1 files |
 
 ## Accumulated Context
 
@@ -49,6 +63,9 @@ Recent decisions affecting current work:
 - [01-01]: nbstripout configurado em modo git filter (nao hook) — working copy preservada, outputs filtrados no staging
 - [01-01]: requirements.txt (nao pyproject.toml) escolhido pela simplicidade para sprint de 1 semana
 - [01-01]: src/__init__.py e src/features.py excluidos do Plan 01 — responsabilidade do Plan 02
+- [01-03]: PR-AUC e Recall definidos como unicas headline metrics — Accuracy e ROC-AUC explicitamente proibidos por enganarem em datasets desbalanceados
+- [01-03]: Limiar de decisao nao e 0.5 — escolhido na curva PR da Phase 4, criterio F1 ou acionabilidade operacional
+- [01-03]: Baseline logistico com class_weight='balanced' obrigatorio antes de XGBoost — garante entregavel e valida valor do modelo avancado
 
 ### Pending Todos
 
@@ -64,5 +81,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-03-01
-Stopped at: Completed 01-01-PLAN.md — scaffold do repositorio completo (2 tasks, 12 files, commits e649620 + 544898d)
+Stopped at: Completed 01-03-PLAN.md — docs/metrics_agreement.md criado (1 task, 1 file, commit 460b8e4)
 Resume file: None
