@@ -82,12 +82,13 @@ Plans:
   3. O pipeline XGBoost existe em `models/final_pipeline.joblib` com PR-AUC superior ao baseline, SHAP beeswarm calculado e os top features identificados
   4. Existe uma curva PR com limiar de decisao selecionado e estimativa operacional concreta: quantos pedidos seriam flagrados por semana e qual o percentual real de risco entre os flagrados
   5. Existe uma tabela de score de risco medio por vendedor que pode ser exibida na apresentacao como recomendacao acionavel
-**Plans**: 3 plans
+**Plans**: 4 plans
 
 Plans:
 - [ ] 04-01-PLAN.md — Secoes 1-2: Load & feature matrix (ML-01) + Baseline LogReg com PR-AUC e Recall (ML-02)
 - [ ] 04-02-PLAN.md — Secoes 3-4: XGBoost com scale_pos_weight (ML-03) + SHAP TreeExplainer beeswarm PNG (ML-04)
 - [ ] 04-03-PLAN.md — Secoes 5-7: Threshold operacional (ML-05) + tabela de vendedores (ML-06) + verificacao joblib (ML-07)
+- [ ] 04-04-PLAN.md — Gap closure: documentacao da limitacao operacional (Recall=0.02) + narrativa para slides (ML-05)
 
 ### Phase 5: Narrativa e Slides
 **Goal**: O deck de apresentacao conta a historia completa em dois atos e todos os notebooks estao documentados e prontos para auditoria
@@ -135,6 +136,6 @@ Note: Phases 3 and 4 can run in parallel after Phase 2 is complete. Phase 5 requ
 | 1. Kickoff e Contratos | 5/5 | Complete   | 2026-03-01 |
 | 2. Data Foundation | 3/3 | Complete   | 2026-03-01 |
 | 3. EDA — Ato 1 | 2/2 | Complete   | 2026-03-01 |
-| 4. ML — Ato 2 | 3/3 | Complete   | 2026-03-01 |
+| 4. ML — Ato 2 | 3/4 | Gap closure pending | 2026-03-01 |
 | 5. Narrativa e Slides | 0/3 | Not started | - |
 | 6. Demo Streamlit e Integracao Final | 0/5 | Not started | - |
