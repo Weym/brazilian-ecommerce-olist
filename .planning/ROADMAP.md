@@ -97,7 +97,12 @@ Plans:
   1. O slide deck tem estrutura clara de dois atos: Ato 1 mostra a dor (logistica → insatisfacao) com os graficos da Phase 3; Ato 2 apresenta a solucao (modelo de risco) com metricas e SHAP da Phase 4
   2. Qualquer pessoa tecnica pode abrir os notebooks de data foundation, EDA e ML e reproduzir os resultados — outputs estao limpos, celulas documentadas, sem paths hardcoded
   3. O relatorio escrito traduz os achados tecnicos em linguagem de negocio com recomendacoes operacionais especificas
-**Plans**: TBD
+**Plans**: 3 plans
+
+Plans:
+- [ ] 05-01-PLAN.md — Documentacao dos notebooks FASE2, FASE3, FASE4: celulas Markdown de decisao metodologica + paths relativos (PRES-02)
+- [ ] 05-02-PLAN.md — Relatorio tecnico docs/report.md (5-8 paginas) + secao Resultados no README (PRES-06)
+- [ ] 05-03-PLAN.md — Roteiro slides_outline.md + construcao do deck Google Slides com dois atos e apendice tecnico (PRES-01)
 
 ### Phase 6: Demo Streamlit e Integracao Final
 **Goal**: A demo ao vivo em Streamlit carrega instantaneamente com artefatos pre-computados e nao falha durante a apresentacao
@@ -124,5 +129,5 @@ Note: Phases 3 and 4 can run in parallel after Phase 2 is complete. Phase 5 requ
 | 2. Data Foundation | 0/3 | Not started | - |
 | 3. EDA — Ato 1 | 0/2 | Not started | - |
 | 4. ML — Ato 2 | 0/3 | Not started | - |
-| 5. Narrativa e Slides | 0/TBD | Not started | - |
+| 5. Narrativa e Slides | 0/3 | Not started | - |
 | 6. Demo Streamlit e Integracao Final | 0/TBD | Not started | - |
