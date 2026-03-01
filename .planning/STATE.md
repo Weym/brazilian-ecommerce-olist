@@ -3,12 +3,12 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-last_updated: "2026-03-01T21:13:56.668Z"
+last_updated: "2026-03-01T21:15:25.567Z"
 progress:
   total_phases: 6
-  completed_phases: 0
+  completed_phases: 1
   total_plans: 21
-  completed_plans: 3
+  completed_plans: 5
 ---
 
 # Project State
@@ -48,6 +48,7 @@ Progress: [██░░░░░░░░] 10%
 
 *Updated after each plan completion*
 | Phase 01 P04 | 5 | 1 tasks | 1 files |
+| Phase 01 P02 | 3 | 2 tasks | 4 files |
 
 ## Accumulated Context
 
@@ -70,6 +71,8 @@ Recent decisions affecting current work:
 - [Phase 01]: Ancora temporal = order_approved_at (nao order_purchase_timestamp)
 - [Phase 01]: Outlier de frete: flaggar com high_freight_flag, nao remover
 - [Phase 01]: Outlier de prazo >30 dias: incluir na EDA; Phase 4 decide tratamento para ML
+- [Phase 01-kickoff-e-contratos]: PRE_DELIVERY_FEATURES has exactly 13 columns with temporal anchor order_approved_at (blocked decision)
+- [Phase 01-kickoff-e-contratos]: seller_customer_distance_km declared in Phase 1 contract even though computed in Phase 2 (Haversine)
 
 ### Pending Todos
 
@@ -85,5 +88,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-03-01
-Stopped at: Completed 01-04-PLAN.md — docs/kickoff.md criado (1 task, 1 file, commit 7129ce0)
+Stopped at: Completed 01-02-PLAN.md — src/features.py e docs/feature_contract.md (2 tasks + TDD, 4 files, commits d0ccf39+dc08d2f+dbe0b1e)
 Resume file: None
