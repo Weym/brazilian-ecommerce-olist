@@ -164,3 +164,15 @@ completed: 2026-03-01
 ---
 *Phase: 03-eda-ato-1*
 *Completed: 2026-03-01*
+
+## Self-Check: PASSED
+
+- FOUND: notebooks/FASE3-P3-eda-metricas.ipynb (14,517 bytes)
+- FOUND: reports/figures/eda01_atraso_vs_nota_boxplot.png (40,717 bytes)
+- FOUND: reports/figures/eda01_atraso_vs_nota_scatter.png (109,314 bytes)
+- FOUND: reports/figures/eda02_frete_vs_nota.png (81,371 bytes)
+- FOUND: reports/figures/eda04_categorias_ruins.png (85,444 bytes)
+- COMMIT 03782d4 verified
+- COMMIT 3687a54 verified
+- COMMIT e9d622d verified
+- COMMIT 46d51b1 (docs) verified
