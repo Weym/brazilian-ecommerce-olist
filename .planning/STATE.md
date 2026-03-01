@@ -3,12 +3,12 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-last_updated: "2026-03-01T23:14:56.170Z"
+last_updated: "2026-03-01T23:40:41.250Z"
 progress:
   total_phases: 6
   completed_phases: 4
-  total_plans: 21
-  completed_plans: 13
+  total_plans: 22
+  completed_plans: 14
 ---
 
 # Project State
@@ -18,14 +18,14 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-01)
 
 **Core value:** Mostrar que e possivel agir antes do problema acontecer — transformar dados historicos de logistica em um sistema de alerta precoce que permite intervencao antes da entrega e da avaliacao ruim.
-**Current focus:** Phase 5 — Slides Ato 2 (next after Phase 4 ML complete)
+**Current focus:** Phase 5 — Narrativa e Slides (Phase 4 gap closed — all 4 plans complete)
 
 ## Current Position
 
-Phase: 4 of 6 (ML Pipeline) — COMPLETO
-Plan: 3 of 3 in current phase — COMPLETO
-Status: Plan 04-03 complete — sections 5-7 added to FASE4-P4-ml-pipeline.ipynb; threshold=0.785 (Precision=0.40); pr_curve.png saved; seller risk table (top-20); round-trip joblib verified — Phase 4 fully complete
-Last activity: 2026-03-01 — Plan 04-03 completo: sections 5-7 + pr_curve.png + round-trip verification — commits 4d00ef3, 973c14f
+Phase: 4 of 6 (ML Pipeline) — COMPLETO (gap closure via plan 04-04)
+Plan: 4 of 4 in current phase — COMPLETO
+Status: Plan 04-04 complete — gap closure: Recall=0.02 documented in notebook Markdown cell + docs/ml_limitations.md; Phase 4 fully complete with all observable truths addressed
+Last activity: 2026-03-01 — Plan 04-04 completo: interpretacao-threshold-gap-closure cell + ml_limitations.md — commits ea98795, 8484945
 
 Progress: [█████████░] 62%
 
@@ -59,6 +59,7 @@ Progress: [█████████░] 62%
 | Phase 04-ml-ato-2 P04-01 | 18 | 2 tasks | 6 files |
 | Phase 04-ml-ato-2 P04-02 | 6 | 2 tasks | 3 files |
 | Phase 04-ml-ato-2 P04-03 | 10 | 2 tasks | 2 files |
+| Phase 04-ml-ato-2 P04-04 | 5 | 2 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -112,6 +113,7 @@ Recent decisions affecting current work:
 - [Phase 04-ml-ato-2]: SHAP capped at 5000 sample of 19492 test rows for performance; TreeExplainer used (not generic shap.Explainer)
 - [Phase 04-ml-ato-2]: Threshold=0.785 at Precision=0.40; Recall=0.02 triggers AVISO (not halt) per plan spec; operational estimate: 8 flagged/week, 40% real risk
 - [Phase 04-ml-ato-2]: Seller table: 1247 eligible sellers (>=10 orders), top-20 by mean risk score; seller_id loaded as auxiliary join key outside PRE_DELIVERY_FEATURES
+- [Phase 04-ml-ato-2]: Recall=0.02 aceito como limitacao operacional — modelo opera em modo alta precisao (40%); docs/ml_limitations.md criado como referencia para Phase 5
 
 ### Pending Todos
 
@@ -127,5 +129,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-03-01
-Stopped at: Completed 04-03-PLAN.md — sections 5-7 + pr_curve.png + seller table + round-trip verification — commits 4d00ef3, 973c14f — Phase 4 COMPLETE
+Stopped at: Completed 04-04-PLAN.md — gap closure: Recall=0.02 documented, docs/ml_limitations.md created — commits ea98795, 8484945 — Phase 4 gap CLOSED
 Resume file: None
