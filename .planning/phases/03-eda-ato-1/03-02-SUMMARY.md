@@ -186,6 +186,17 @@ Razao: kaleido requer Chrome headless para renderizar imagens plotly. O Chrome i
 - GeoJSON cached em docs/ para reuso sem re-download
 - Insight de atraso negativo disponivel para narrativa da Pessoa 2 no Ato 1
 
+## Self-Check: PASSED
+
+- data/processed/geo_aggregated.parquet: EXISTS (27 UFs, 6 cols, bad_review_rate 0.075-0.238)
+- reports/figures/eda03_choropleth_bad_reviews_uf.png: EXISTS (113,655 bytes > 10KB)
+- reports/figures/eda05_rotas_heatmap.png: EXISTS (99,679 bytes > 10KB)
+- reports/figures/eda03_choropleth_static.html: EXISTS
+- docs/brazil_states.geojson: EXISTS (3,378,231 bytes)
+- notebooks/FASE3-P2-eda-geo.ipynb: EXISTS (13,057 bytes, 12 code cells)
+- Commit 73e47dd: FOUND (feat(03-02): EDA-03)
+- Commit ab10216: FOUND (feat(03-02): EDA-05)
+
 ---
 *Phase: 03-eda-ato-1*
 *Completed: 2026-03-01*
