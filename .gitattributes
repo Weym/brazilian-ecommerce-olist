@@ -1,0 +1,9 @@
+# .gitattributes
+# nbstripout git filter — strips Jupyter output before git sees the file.
+# Working copy is NOT modified (use git filter mode, not pre-commit hook mode).
+# Each contributor must run once after cloning:
+#   pip install nbstripout
+#   nbstripout --install --attributes .gitattributes
+# Verify with: nbstripout --status
+*.ipynb filter=nbstripout
+*.ipynb diff=ipynb
