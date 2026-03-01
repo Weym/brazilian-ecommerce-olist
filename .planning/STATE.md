@@ -22,12 +22,12 @@ See: .planning/PROJECT.md (updated 2026-03-01)
 
 ## Current Position
 
-Phase: 3 of 6 (EDA Ato 1) — EM ANDAMENTO
-Plan: 1 of 2 in current phase — COMPLETO
-Status: Plan 03-01 complete — EDA-01/02/04 PNGs exportados; pronto para Plan 03-02
-Last activity: 2026-03-01 — Plan 03-01 completo: 4 PNGs EDA (Mann-Whitney p=0.00e+00, Spearman r=-0.088) — commits 03782d4, 3687a54, e9d622d
+Phase: 3 of 6 (EDA Ato 1) — COMPLETO
+Plan: 2 of 2 in current phase — COMPLETO
+Status: Phase 3 complete — all 2 plans done; ready for Phase 4 (ML Pipeline)
+Last activity: 2026-03-01 — Plan 03-02 completo: geo_aggregated.parquet (27 UFs, bad_review_rate 0.075-0.238) + choropleth PNG (113KB) + heatmap rotas (99KB) — commits 73e47dd, ab10216
 
-Progress: [██████░░░░] 43%
+Progress: [███████░░░] 48%
 
 ## Performance Metrics
 
@@ -116,5 +116,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-03-01
-Stopped at: Completed 03-01-PLAN.md — 4 PNGs EDA-01/02/04 exportados (Mann-Whitney p=0.00e+00, Spearman r=-0.088, top-3 cats: bed_bath_table/health_beauty/computers_accessories) — commits 03782d4, 3687a54, e9d622d
+Stopped at: Completed 03-02-PLAN.md — geo_aggregated.parquet (27 UFs) + choropleth PNG + heatmap rotas — commits 73e47dd, ab10216; Phase 3 COMPLETE
 Resume file: None
