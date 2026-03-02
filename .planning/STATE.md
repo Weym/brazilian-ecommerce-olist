@@ -3,12 +3,12 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-last_updated: "2026-03-01T24:05:00Z"
+last_updated: "2026-03-02T00:22:15.765Z"
 progress:
   total_phases: 6
-  completed_phases: 4
+  completed_phases: 5
   total_plans: 22
-  completed_plans: 15
+  completed_plans: 17
 ---
 
 # Project State
@@ -62,6 +62,7 @@ Progress: [█████████░] 73%
 | Phase 04-ml-ato-2 P04-04 | 5 | 2 tasks | 2 files |
 | Phase 05-narrativa-e-slides P05-01 | 15 | 2 tasks | 3 files |
 | Phase 05-narrativa-e-slides P05-02 | 12 | 2 tasks | 2 files |
+| Phase 05-narrativa-e-slides P05-03 | 3 | 1 tasks | 3 files |
 
 ## Accumulated Context
 
@@ -122,6 +123,7 @@ Recent decisions affecting current work:
 - [Phase 05-02]: Recall=0.02 documentado como limitacao operacional conhecida (nao escondido) — modelo opera em modo de alta precisao cirurgica
 - [Phase 05-02]: README instrucoes de reproducao atualizadas com nomes reais dos notebooks (FASE2-P1-data-foundation, FASE3-P3-eda, FASE4-P4-ml-pipeline)
 - [Phase 05-02]: Section 5 (Recomendacoes) escrita em linguagem de negocio — sem jargao ML
+- [Phase 05-narrativa-e-slides]: slides_outline.md usa nomes reais dos arquivos de reports/figures/ e tabela top-10 vendedores com scores calculados via pipeline final (threshold=0.785)
 
 ### Pending Todos
 
