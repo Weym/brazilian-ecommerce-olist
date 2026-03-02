@@ -1,5 +1,5 @@
 # Roteiro do Deck — Risco Pre-Entrega Olist
-**Deck:** [URL do Google Slides — preencher apos criacao]
+**Deck:** PENDENTE — construir manualmente seguindo este roteiro (slides_outline.md e o guia completo)
 **Duracao estimada:** ~20 minutos (18 slides principais)
 **Publico:** Gestores de negocio + time tecnico
 
