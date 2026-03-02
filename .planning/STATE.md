@@ -3,7 +3,7 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-last_updated: "2026-03-02T01:03:43.092Z"
+last_updated: "2026-03-02T01:03:49.810Z"
 progress:
   total_phases: 6
   completed_phases: 5
@@ -23,9 +23,9 @@ See: .planning/PROJECT.md (updated 2026-03-01)
 ## Current Position
 
 Phase: 6 of 6 (Demo Streamlit e Integracao Final) — EM ANDAMENTO
-Plan: 4 of 5 in current phase — COMPLETO
-Status: Plan 06-04 complete — pages/4_EDA.py (EDA gallery selectbox + static PNG display + graceful empty state) — commit 33466e6
-Last activity: 2026-03-02 — Plan 06-04 completo: pagina EDA com selectbox navegavel, st.image estatico, botoes prev/next, contexto narrativo
+Plan: 3 of 5 in current phase — COMPLETO
+Status: Plan 06-03 complete — pages/3_Mapa.py (choropleth interativo 27 estados, 4 filtros multiselect, hover tri-metrico) — commit d888af2
+Last activity: 2026-03-02 — Plan 06-03 completo: pagina Mapa Geografico com choropleth Plotly, detect_column() resiliente, debug expansivel
 
 Progress: [█████████░] 82%
 
@@ -135,6 +135,8 @@ Recent decisions affecting current work:
 - [Phase 06-01]: GeoJSON brazil-states.geojson commitado offline para choropleth sem internet no evento (27 estados, properties.sigla confirmado)
 - [Phase 06-demo-streamlit-e-integracao-final]: Preditor usa 6 inputs visiveis + 7 features default (medianas gold): THRESHOLD_LOW=threshold*0.6, THRESHOLD_HIGH=threshold=0.785 para gauge tri-color
 - [Phase 06-demo-streamlit-e-integracao-final]: pages/4_EDA.py uses st.image(path_string) without PIL — no live reprocessing, full-width via use_container_width=True, graceful empty-state with st.stop()
+- [Phase 06-demo-streamlit-e-integracao-final]: detect_column() com candidatos ordenados — paginas que consomem parquets de fases anteriores devem usar este padrao para resiliencia a variacao de nomes de colunas
+- [Phase 06-demo-streamlit-e-integracao-final]: featureidkey='properties.sigla' confirmado correto para GeoJSON codeforamerica — 'id' ou 'properties.id' causa estados em branco no choropleth
 
 ### Pending Todos
 
