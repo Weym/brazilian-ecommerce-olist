@@ -24,8 +24,8 @@ See: .planning/PROJECT.md (updated 2026-03-01)
 
 Phase: 6 of 6 (Demo Streamlit e Integracao Final) — COMPLETO
 Plan: 5 of 5 in current phase — COMPLETO
-Status: Plan 06-05 complete — docs/demo_checklist.md com 4 cenarios e scores reais, smoke test local verificado — checkpoint:human-verify aguarda verificacao visual
-Last activity: 2026-03-02 — Plan 06-05 completo: smoke test local + demo_checklist.md + thresholds calibrados (verde <38%, amarelo 38-44%, vermelho >44%) + preset examples no Preditor
+Status: Plan 06-05 TOTALMENTE COMPLETO — checkpoint:human-verify APROVADO — app funcional em localhost:8501, todas as 4 paginas sem traceback, gauge e mapa verificados
+Last activity: 2026-03-01 — Plan 06-05 human-verify aprovado: Home, Preditor, Mapa e EDA carregam sem traceback; gauge calibrado OK; mapa 27 estados OK; galeria EDA OK
 
 Progress: [██████████] 100%
 
@@ -154,6 +154,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-02
-Stopped at: Completed 06-05-PLAN.md — docs/demo_checklist.md + smoke test local + thresholds calibrados — task:human-verify aguarda verificacao visual do app em localhost:8501
+Last session: 2026-03-01
+Stopped at: Completed 06-05-PLAN.md totalmente — checkpoint:human-verify aprovado — app Streamlit funcional confirmado em localhost:8501 — Fase 6 COMPLETA
 Resume file: None

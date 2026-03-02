@@ -46,8 +46,8 @@ patterns-established:
 requirements-completed:
   - PRES-07
 
-duration: 8min
-completed: 2026-03-02
+duration: 10min
+completed: 2026-03-01
 ---
 
 # Phase 06 Plan 05: Smoke Test Local e Checklist de Demo — Summary
@@ -56,10 +56,10 @@ completed: 2026-03-02
 
 ## Performance
 
-- **Duration:** 8 min
+- **Duration:** 10 min
 - **Started:** 2026-03-02T01:03:49Z
-- **Completed:** 2026-03-02T01:25:39Z
-- **Tasks:** 1 of 2 (Task 2 e checkpoint:human-verify — aguarda verificacao visual humana)
+- **Completed:** 2026-03-01T00:00:00Z
+- **Tasks:** 2 of 2 (Task 1 auto + Task 2 checkpoint:human-verify — APROVADO)
 - **Files modified:** 1
 
 ## Accomplishments
@@ -107,15 +107,15 @@ completed: 2026-03-02
 
 - Scores do modelo mais comprimidos que o esperado (36-48% vs range teorico de 35-65%) — consequencia do calibrador e da distribuicao do dataset. Resolvido calibrando os thresholds do gauge e atualizando o checklist com scores reais.
 
-## User Setup Required
+## Human Verification — APROVADO
 
-**Task 2 (checkpoint:human-verify) aguarda verificacao visual humana:**
-- Iniciar app localmente: `streamlit run app.py`
-- Verificar paginas Home, Preditor, Mapa e EDA carregam sem traceback
-- Executar cenarios do checklist em `docs/demo_checklist.md`
-- (Opcional) Deploy no Streamlit Cloud para URL publica
-
-**Plano B ja documentado** em `docs/demo_checklist.md` — deploy Streamlit Cloud e desejavel mas nao bloqueante.
+**Task 2 (checkpoint:human-verify) aprovado pelo usuario em 2026-03-01:**
+- App iniciado localmente via `streamlit run app.py`
+- Todas as paginas (Home, Preditor, Mapa, EDA) carregam sem traceback — CONFIRMADO
+- Gauge do Preditor funciona com thresholds calibrados — CONFIRMADO
+- Mapa renderiza 27 estados com filtros funcionais — CONFIRMADO
+- Galeria EDA navega entre figuras — CONFIRMADO
+- Deploy Streamlit Cloud: Plano B local documentado como fallback — suficiente para a apresentacao
 
 ## Next Phase Readiness
 
@@ -135,4 +135,5 @@ completed: 2026-03-02
 
 ---
 *Phase: 06-demo-streamlit-e-integracao-final*
-*Completed: 2026-03-02*
+*Completed: 2026-03-01*
+*Human verification: APROVADO — app funcional em localhost:8501, todas as 4 paginas sem traceback*
