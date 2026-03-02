@@ -60,8 +60,8 @@ def load_threshold() -> float:
             data = json.load(f)
             # Aceita tanto {"threshold": 0.4} quanto valor direto
             return data.get("threshold", data) if isinstance(data, dict) else float(data)
-    # Fallback se Phase 4 nao exportou threshold.json
-    return 0.5
+    # Fallback: threshold da Phase 4 ML-05 a Precision=0.40 na curva PR
+    return 0.785
 
 
 @st.cache_data
@@ -101,33 +101,48 @@ def list_eda_figures() -> list:
 @st.cache_data
 def load_categories_and_ufs() -> tuple:
     """
-    Extrai listas unicas de categorias e UFs do geo_data.
+    Extrai listas unicas de categorias e UFs da tabela gold.
     Usado pelo formulario do Preditor para popular os selectbox.
     Retorna: (lista_categorias_ordenadas, lista_ufs_ordenadas)
-    OPEN QUESTION: nome da coluna de categoria depende do Phase 3.
-    Tentativa: 'categoria', fallback: 'product_category_name_english'
+
+    Fonte primaria: data/gold/olist_gold.parquet (colunas product_category_name_english e customer_state)
+    Fallback hardcoded: 71 categorias e 27 UFs do dataset Olist caso o parquet nao esteja disponivel.
     """
-    df = load_geo_data()
-
-    # Detectar coluna de categoria
-    cat_col = None
-    for candidate in ["categoria", "product_category_name_english", "category"]:
-        if candidate in df.columns:
-            cat_col = candidate
-            break
-
-    categories = sorted(df[cat_col].dropna().unique().tolist()) if cat_col else []
-
-    # UFs — detectar coluna
-    uf_col = None
-    for candidate in ["uf_destino", "customer_state", "uf"]:
-        if candidate in df.columns:
-            uf_col = candidate
-            break
-
-    ufs = sorted(df[uf_col].dropna().unique().tolist()) if uf_col else [
+    _FALLBACK_CATEGORIES = [
+        "agro_industry_and_commerce", "air_conditioning", "art", "arts_and_craftmanship",
+        "audio", "auto", "baby", "bed_bath_table", "books_general_interest", "books_imported",
+        "books_technical", "cds_dvds_musicals", "christmas_supplies", "cine_photo", "computers",
+        "computers_accessories", "consoles_games", "construction_tools_construction",
+        "construction_tools_lights", "construction_tools_safety", "cool_stuff",
+        "costruction_tools_garden", "costruction_tools_tools", "diapers_and_hygiene", "drinks",
+        "dvds_blu_ray", "electronics", "fashio_female_clothing", "fashion_bags_accessories",
+        "fashion_childrens_clothes", "fashion_male_clothing", "fashion_shoes", "fashion_sport",
+        "fashion_underwear_beach", "fixed_telephony", "flowers", "food", "food_drink",
+        "furniture_bedroom", "furniture_decor", "furniture_living_room",
+        "furniture_mattress_and_upholstery", "garden_tools", "health_beauty", "home_appliances",
+        "home_appliances_2", "home_comfort_2", "home_confort", "home_construction", "housewares",
+        "industry_commerce_and_business", "kitchen_dining_laundry_garden_furniture", "la_cuisine",
+        "luggage_accessories", "market_place", "music", "musical_instruments", "office_furniture",
+        "party_supplies", "perfumery", "pet_shop", "security_and_services",
+        "signaling_and_security", "small_appliances", "small_appliances_home_oven_and_coffee",
+        "sports_leisure", "stationery", "tablets_printing_image", "telephony", "toys",
+        "watches_gifts",
+    ]
+    _FALLBACK_UFS = [
         "AC", "AL", "AM", "AP", "BA", "CE", "DF", "ES", "GO", "MA", "MG", "MS", "MT",
-        "PA", "PB", "PE", "PI", "PR", "RJ", "RN", "RO", "RR", "RS", "SC", "SE", "SP", "TO"
+        "PA", "PB", "PE", "PI", "PR", "RJ", "RN", "RO", "RR", "RS", "SC", "SE", "SP", "TO",
     ]
 
-    return categories, ufs
+    gold_path = BASE / "data" / "gold" / "olist_gold.parquet"
+    if not gold_path.exists():
+        return _FALLBACK_CATEGORIES, _FALLBACK_UFS
+
+    try:
+        df = pd.read_parquet(gold_path, columns=["product_category_name_english", "customer_state"])
+        categories = sorted(df["product_category_name_english"].dropna().unique().tolist())
+        ufs = sorted(
+            set(df["customer_state"].dropna().unique().tolist()) | set(_FALLBACK_UFS)
+        )
+        return categories if categories else _FALLBACK_CATEGORIES, ufs
+    except Exception:
+        return _FALLBACK_CATEGORIES, _FALLBACK_UFS
