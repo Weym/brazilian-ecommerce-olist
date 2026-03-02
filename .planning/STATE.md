@@ -3,12 +3,12 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-last_updated: "2026-03-02T01:03:49.810Z"
+last_updated: "2026-03-02T01:26:42.591Z"
 progress:
   total_phases: 6
-  completed_phases: 5
+  completed_phases: 6
   total_plans: 22
-  completed_plans: 21
+  completed_plans: 22
 ---
 
 # Project State
@@ -22,12 +22,12 @@ See: .planning/PROJECT.md (updated 2026-03-01)
 
 ## Current Position
 
-Phase: 6 of 6 (Demo Streamlit e Integracao Final) — EM ANDAMENTO
-Plan: 3 of 5 in current phase — COMPLETO
-Status: Plan 06-03 complete — pages/3_Mapa.py (choropleth interativo 27 estados, 4 filtros multiselect, hover tri-metrico) — commit d888af2
-Last activity: 2026-03-02 — Plan 06-03 completo: pagina Mapa Geografico com choropleth Plotly, detect_column() resiliente, debug expansivel
+Phase: 6 of 6 (Demo Streamlit e Integracao Final) — COMPLETO
+Plan: 5 of 5 in current phase — COMPLETO
+Status: Plan 06-05 complete — docs/demo_checklist.md com 4 cenarios e scores reais, smoke test local verificado — checkpoint:human-verify aguarda verificacao visual
+Last activity: 2026-03-02 — Plan 06-05 completo: smoke test local + demo_checklist.md + thresholds calibrados (verde <38%, amarelo 38-44%, vermelho >44%) + preset examples no Preditor
 
-Progress: [█████████░] 82%
+Progress: [██████████] 100%
 
 ## Performance Metrics
 
@@ -68,6 +68,7 @@ Progress: [█████████░] 82%
 | Phase 06-demo-streamlit-e-integracao-final P02 | 5 | 1 tasks | 2 files |
 | Phase 06-demo-streamlit-e-integracao-final P04 | 1 | 1 tasks | 1 files |
 | Phase 06-demo-streamlit-e-integracao-final P03 | 2 | 1 tasks | 1 files |
+| Phase 06 P05 | 8 | 1 tasks | 1 files |
 
 ## Accumulated Context
 
@@ -137,6 +138,8 @@ Recent decisions affecting current work:
 - [Phase 06-demo-streamlit-e-integracao-final]: pages/4_EDA.py uses st.image(path_string) without PIL — no live reprocessing, full-width via use_container_width=True, graceful empty-state with st.stop()
 - [Phase 06-demo-streamlit-e-integracao-final]: detect_column() com candidatos ordenados — paginas que consomem parquets de fases anteriores devem usar este padrao para resiliencia a variacao de nomes de colunas
 - [Phase 06-demo-streamlit-e-integracao-final]: featureidkey='properties.sigla' confirmado correto para GeoJSON codeforamerica — 'id' ou 'properties.id' causa estados em branco no choropleth
+- [Phase 06]: docs/demo_checklist.md com scores reais calibrados — thresholds ajustados para verde <38%, amarelo 38-44%, vermelho >44% com base na distribuicao real do modelo
+- [Phase 06]: Plano B local documentado em demo_checklist.md como fallback obrigatorio — deploy Streamlit Cloud e opcional para apresentacao
 
 ### Pending Todos
 
@@ -152,5 +155,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-03-02
-Stopped at: Completed 06-04-PLAN.md — pages/4_EDA.py EDA gallery page com selectbox navegavel e st.image estatico — commit 33466e6
+Stopped at: Completed 06-05-PLAN.md — docs/demo_checklist.md + smoke test local + thresholds calibrados — task:human-verify aguarda verificacao visual do app em localhost:8501
 Resume file: None

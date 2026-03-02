@@ -17,7 +17,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 3: EDA — Ato 1** - Visualizacoes e analises que provam como logistica degrada satisfacao do cliente (completed 2026-03-01)
 - [x] **Phase 4: ML — Ato 2** - Pipeline de risco pre-entrega com baseline + XGBoost, SHAP e agregacao por vendedor (completed 2026-03-01)
 - [x] **Phase 5: Narrativa e Slides** - Deck com dois atos, notebooks documentados e relatorio escrito (completed 2026-03-02)
-- [ ] **Phase 6: Demo Streamlit e Integracao Final** - App multi-pagina carregando artefatos pre-computados, testada e pronta para apresentacao
+- [x] **Phase 6: Demo Streamlit e Integracao Final** - App multi-pagina carregando artefatos pre-computados, testada e pronta para apresentacao (completed 2026-03-02)
 
 ## Phase Details
 
@@ -138,4 +138,4 @@ Note: Phases 3 and 4 can run in parallel after Phase 2 is complete. Phase 5 requ
 | 3. EDA — Ato 1 | 2/2 | Complete   | 2026-03-01 |
 | 4. ML — Ato 2 | 4/4 | Complete   | 2026-03-01 |
 | 5. Narrativa e Slides | 3/3 | Complete   | 2026-03-02 |
-| 6. Demo Streamlit e Integracao Final | 4/5 | In Progress|  |
+| 6. Demo Streamlit e Integracao Final | 5/5 | Complete   | 2026-03-02 |
