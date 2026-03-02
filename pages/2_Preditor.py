@@ -78,6 +78,36 @@ if not categories:
 if not ufs:
     ufs = _FALLBACK_UFS
 
+# Presets confirmados por probe empírico no pipeline real
+# Formato: (label, freight, price, days, category, seller, customer)
+_PRESETS = {
+    "-- selecione um exemplo --": None,
+    "Verde (~29%) — Frete alto, categoria incomum: MG→RR, garden_tools":
+        (90, 60, 35, "garden_tools", "MG", "RR"),
+    "Verde (~30%) — Frete alto, categoria brinquedos: PE→AM, toys":
+        (75, 55, 28, "toys", "PE", "AM"),
+    "Verde (~36%) — Produto barato de bebê: BA→PA, baby":
+        (65, 45, 32, "baby", "BA", "PA"),
+    "Verde (~38%) — Eletrônicos, preço alto: MG→SP, electronics":
+        (15, 350, 7, "electronics", "MG", "SP"),
+    "Amarelo (~41%) — Móveis, rota longa: SP→AM, furniture_decor":
+        (80, 50, 30, "furniture_decor", "SP", "AM"),
+    "Amarelo (~41%) — Esportes, rota regional: RJ→BA, sports_leisure":
+        (45, 90, 20, "sports_leisure", "RJ", "BA"),
+    "Amarelo (~43%) — Informática, prazo curto: SC→PR, computers":
+        (10, 250, 8, "computers_accessories", "SC", "PR"),
+    "Vermelho (~45%) — Cama/mesa/banho: SP→AM, bed_bath_table":
+        (55, 70, 22, "bed_bath_table", "SP", "CE"),
+    "Vermelho (~48%) — Cama/mesa/banho, rota Norte: SP→PA":
+        (60, 80, 25, "bed_bath_table", "SP", "PA"),
+    "Vermelho (~45%) — Beleza/saúde, rota curta: SP→SP, health_beauty":
+        (12, 180, 5, "health_beauty", "SP", "SP"),
+    "Vermelho (~55%) — Beleza/saúde, SP→RJ, health_beauty":
+        (25, 200, 10, "health_beauty", "SP", "RJ"),
+    "Vermelho (~57%) — Beleza/saúde, entrega local: RJ→RJ":
+        (20, 150, 8, "health_beauty", "RJ", "RJ"),
+}
+
 
 # ---------------------------------------------------------------------------
 # Gauge builder
@@ -166,6 +196,26 @@ st.markdown(
 st.divider()
 
 # ---------------------------------------------------------------------------
+# Presets de demonstracao
+# ---------------------------------------------------------------------------
+st.subheader("Exemplos prontos por faixa de risco")
+preset_key = st.selectbox(
+    "Carregar exemplo:",
+    options=list(_PRESETS.keys()),
+    index=0,
+    help="Selecione um exemplo para preencher o formulario automaticamente",
+)
+preset = _PRESETS[preset_key]
+
+# Valores iniciais: preset ou defaults do formulario
+if preset:
+    _fv, _pr, _days, _cat, _sell, _cust = preset
+else:
+    _fv, _pr, _days, _cat, _sell, _cust = 17.17, 86.80, 22, "health_beauty", "SP", "RJ"
+
+st.divider()
+
+# ---------------------------------------------------------------------------
 # Formulario de entrada
 # ---------------------------------------------------------------------------
 with st.form("preditor_form"):
@@ -178,7 +228,7 @@ with st.form("preditor_form"):
             "Valor do Frete (R$)",
             min_value=0.0,
             max_value=500.0,
-            value=17.17,
+            value=float(_fv),
             step=0.5,
             help="Frete cobrado no pedido (mediana Olist: R$ 17,17)",
         )
@@ -186,7 +236,7 @@ with st.form("preditor_form"):
             "Preco do Produto (R$)",
             min_value=0.01,
             max_value=10000.0,
-            value=86.80,
+            value=float(_pr),
             step=1.0,
             help="Valor total do produto — usado para calcular proporcao frete/preco",
         )
@@ -194,7 +244,7 @@ with st.form("preditor_form"):
             "Prazo Estimado de Entrega (dias)",
             min_value=1,
             max_value=90,
-            value=22,
+            value=int(_days),
             step=1,
             help="Dias corridos entre aprovacao do pedido e data estimada de entrega",
         )
@@ -203,19 +253,19 @@ with st.form("preditor_form"):
         product_category_name_english = st.selectbox(
             "Categoria do Produto",
             options=categories,
-            index=categories.index("health_beauty") if "health_beauty" in categories else 0,
+            index=categories.index(_cat) if _cat in categories else 0,
             help="Categoria do produto no catalogo Olist (71 categorias)",
         )
         seller_state = st.selectbox(
             "UF de Origem (vendedor)",
             options=ufs,
-            index=ufs.index("SP") if "SP" in ufs else 0,
+            index=ufs.index(_sell) if _sell in ufs else 0,
             help="Estado onde o vendedor esta localizado",
         )
         customer_state = st.selectbox(
             "UF de Destino (comprador)",
             options=ufs,
-            index=ufs.index("RJ") if "RJ" in ufs else 0,
+            index=ufs.index(_cust) if _cust in ufs else 0,
             help="Estado do comprador",
         )
 
