@@ -3,12 +3,12 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-last_updated: "2026-03-01T23:45:45.236Z"
+last_updated: "2026-03-01T24:05:00Z"
 progress:
   total_phases: 6
   completed_phases: 4
   total_plans: 22
-  completed_plans: 14
+  completed_plans: 15
 ---
 
 # Project State
@@ -18,16 +18,16 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-01)
 
 **Core value:** Mostrar que e possivel agir antes do problema acontecer — transformar dados historicos de logistica em um sistema de alerta precoce que permite intervencao antes da entrega e da avaliacao ruim.
-**Current focus:** Phase 5 — Narrativa e Slides (Phase 4 gap closed — all 4 plans complete)
+**Current focus:** Phase 5 — Narrativa e Slides (Plan 05-01 complete — notebooks documented)
 
 ## Current Position
 
-Phase: 4 of 6 (ML Pipeline) — COMPLETO (gap closure via plan 04-04)
-Plan: 4 of 4 in current phase — COMPLETO
-Status: Plan 04-04 complete — gap closure: Recall=0.02 documented in notebook Markdown cell + docs/ml_limitations.md; Phase 4 fully complete with all observable truths addressed
-Last activity: 2026-03-01 — Plan 04-04 completo: interpretacao-threshold-gap-closure cell + ml_limitations.md — commits ea98795, 8484945
+Phase: 5 of 6 (Narrativa e Slides) — EM ANDAMENTO
+Plan: 1 of 3 in current phase — COMPLETO
+Status: Plan 05-01 complete — tres notebooks documentados com celulas Markdown de decisao metodologica, pathlib portavel, metricas finais em texto permanente
+Last activity: 2026-03-01 — Plan 05-01 completo: FASE2/FASE3/FASE4 notebooks documented — commits 01fb04c, c26bc5d
 
-Progress: [█████████░] 62%
+Progress: [█████████░] 68%
 
 ## Performance Metrics
 
@@ -60,6 +60,7 @@ Progress: [█████████░] 62%
 | Phase 04-ml-ato-2 P04-02 | 6 | 2 tasks | 3 files |
 | Phase 04-ml-ato-2 P04-03 | 10 | 2 tasks | 2 files |
 | Phase 04-ml-ato-2 P04-04 | 5 | 2 tasks | 2 files |
+| Phase 05-narrativa-e-slides P05-01 | 15 | 2 tasks | 3 files |
 
 ## Accumulated Context
 
@@ -114,6 +115,9 @@ Recent decisions affecting current work:
 - [Phase 04-ml-ato-2]: Threshold=0.785 at Precision=0.40; Recall=0.02 triggers AVISO (not halt) per plan spec; operational estimate: 8 flagged/week, 40% real risk
 - [Phase 04-ml-ato-2]: Seller table: 1247 eligible sellers (>=10 orders), top-20 by mean risk score; seller_id loaded as auxiliary join key outside PRE_DELIVERY_FEATURES
 - [Phase 04-ml-ato-2]: Recall=0.02 aceito como limitacao operacional — modelo opera em modo alta precisao (40%); docs/ml_limitations.md criado como referencia para Phase 5
+- [Phase 05-01]: FASE3-P3-eda.ipynb era placeholder de 2 celulas — reconstruido com 5 secoes EDA completas documentadas com decisao 'Por que'
+- [Phase 05-01]: FASE4 usava "../" relative paths — substituidos por PROJECT_ROOT / pathlib para portabilidade
+- [Phase 05-01]: Metricas finais documentadas em Markdown (nao output): PR-AUC baseline=0.2207, XGBoost=0.2283, threshold=0.785, 8 pedidos/semana flagrados
 
 ### Pending Todos
 
@@ -129,5 +133,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-03-01
-Stopped at: Completed 04-04-PLAN.md — gap closure: Recall=0.02 documented, docs/ml_limitations.md created — commits ea98795, 8484945 — Phase 4 gap CLOSED
+Stopped at: Completed 05-01-PLAN.md — tres notebooks documentados com Markdown de decisao metodologica, pathlib portavel, metricas em texto permanente — commits 01fb04c, c26bc5d
 Resume file: None

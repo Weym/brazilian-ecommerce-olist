@@ -101,7 +101,7 @@ Plans:
 **Plans**: 3 plans
 
 Plans:
-- [ ] 05-01-PLAN.md — Documentacao dos notebooks FASE2, FASE3, FASE4: celulas Markdown de decisao metodologica + paths relativos (PRES-02)
+- [x] 05-01-PLAN.md — Documentacao dos notebooks FASE2, FASE3, FASE4: celulas Markdown de decisao metodologica + paths relativos (PRES-02)
 - [ ] 05-02-PLAN.md — Relatorio tecnico docs/report.md (5-8 paginas) + secao Resultados no README (PRES-06)
 - [ ] 05-03-PLAN.md — Roteiro slides_outline.md + construcao do deck Google Slides com dois atos e apendice tecnico (PRES-01)
 
@@ -137,5 +137,5 @@ Note: Phases 3 and 4 can run in parallel after Phase 2 is complete. Phase 5 requ
 | 2. Data Foundation | 3/3 | Complete   | 2026-03-01 |
 | 3. EDA — Ato 1 | 2/2 | Complete   | 2026-03-01 |
 | 4. ML — Ato 2 | 4/4 | Complete   | 2026-03-01 |
-| 5. Narrativa e Slides | 0/3 | Not started | - |
+| 5. Narrativa e Slides | 1/3 | In progress | 2026-03-01 |
 | 6. Demo Streamlit e Integracao Final | 0/5 | Not started | - |
