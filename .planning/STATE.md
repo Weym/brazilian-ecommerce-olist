@@ -3,12 +3,12 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-last_updated: "2026-03-02T00:59:32.958Z"
+last_updated: "2026-03-02T01:03:43.092Z"
 progress:
   total_phases: 6
   completed_phases: 5
   total_plans: 22
-  completed_plans: 19
+  completed_plans: 21
 ---
 
 # Project State
@@ -23,9 +23,9 @@ See: .planning/PROJECT.md (updated 2026-03-01)
 ## Current Position
 
 Phase: 6 of 6 (Demo Streamlit e Integracao Final) — EM ANDAMENTO
-Plan: 2 of 5 in current phase — COMPLETO
-Status: Plan 06-02 complete — pages/2_Preditor.py (gauge go.Indicator tri-color + acao recomendada) e bug fix utils/loaders.py — commit 3ca1028
-Last activity: 2026-03-02 — Plan 06-02 completo: pagina Preditor de Risco com formulario 6 inputs, gauge Plotly e acao recomendada
+Plan: 4 of 5 in current phase — COMPLETO
+Status: Plan 06-04 complete — pages/4_EDA.py (EDA gallery selectbox + static PNG display + graceful empty state) — commit 33466e6
+Last activity: 2026-03-02 — Plan 06-04 completo: pagina EDA com selectbox navegavel, st.image estatico, botoes prev/next, contexto narrativo
 
 Progress: [█████████░] 82%
 
@@ -66,6 +66,8 @@ Progress: [█████████░] 82%
 | Phase 05-narrativa-e-slides P05-03 | 10 | 2 tasks | 1 files |
 | Phase 06-demo-streamlit-e-integracao-final P06-01 | 12 | 2 tasks | 7 files |
 | Phase 06-demo-streamlit-e-integracao-final P02 | 5 | 1 tasks | 2 files |
+| Phase 06-demo-streamlit-e-integracao-final P04 | 1 | 1 tasks | 1 files |
+| Phase 06-demo-streamlit-e-integracao-final P03 | 2 | 1 tasks | 1 files |
 
 ## Accumulated Context
 
@@ -132,6 +134,7 @@ Recent decisions affecting current work:
 - [Phase 06-01]: utils/loaders.py e unico ponto de I/O — @st.cache_resource para modelos ML, @st.cache_data para DataFrames/JSON
 - [Phase 06-01]: GeoJSON brazil-states.geojson commitado offline para choropleth sem internet no evento (27 estados, properties.sigla confirmado)
 - [Phase 06-demo-streamlit-e-integracao-final]: Preditor usa 6 inputs visiveis + 7 features default (medianas gold): THRESHOLD_LOW=threshold*0.6, THRESHOLD_HIGH=threshold=0.785 para gauge tri-color
+- [Phase 06-demo-streamlit-e-integracao-final]: pages/4_EDA.py uses st.image(path_string) without PIL — no live reprocessing, full-width via use_container_width=True, graceful empty-state with st.stop()
 
 ### Pending Todos
 
@@ -147,5 +150,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-03-02
-Stopped at: Completed 06-02-PLAN.md — pages/2_Preditor.py com gauge go.Indicator e acao recomendada — commit 3ca1028
+Stopped at: Completed 06-04-PLAN.md — pages/4_EDA.py EDA gallery page com selectbox navegavel e st.image estatico — commit 33466e6
 Resume file: None

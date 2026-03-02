@@ -47,7 +47,7 @@ Requisitos para o desafio relâmpago de 1 semana. Cada um mapeia para fases do r
 - [x] **PRES-02**: Notebooks documentados por area (data foundation, EDA, ML) com outputs limpos no git
 - [x] **PRES-03**: Streamlit multi-pagina com preditor ao vivo (input de caracteristicas de pedido → output de risco pre-entrega)
 - [ ] **PRES-04**: Streamlit com mapa interativo (filtros por UF/rota)
-- [ ] **PRES-05**: Streamlit com painel de EDA navegavel (graficos principais do Ato 1)
+- [x] **PRES-05**: Streamlit com painel de EDA navegavel (graficos principais do Ato 1)
 - [x] **PRES-06**: Relatorio escrito com achados tecnicos e recomendacoes operacionais em linguagem de negocio
 - [x] **PRES-07**: Demo Streamlit carrega artefatos pre-computados (nunca processa dados pesados ao vivo durante apresentacao)
 
