@@ -138,4 +138,4 @@ Note: Phases 3 and 4 can run in parallel after Phase 2 is complete. Phase 5 requ
 | 3. EDA — Ato 1 | 2/2 | Complete   | 2026-03-01 |
 | 4. ML — Ato 2 | 4/4 | Complete   | 2026-03-01 |
 | 5. Narrativa e Slides | 3/3 | Complete   | 2026-03-02 |
-| 6. Demo Streamlit e Integracao Final | 1/5 | In progress | - |
+| 6. Demo Streamlit e Integracao Final | 2/5 | In Progress|  |

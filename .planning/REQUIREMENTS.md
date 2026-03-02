@@ -45,7 +45,7 @@ Requisitos para o desafio relâmpago de 1 semana. Cada um mapeia para fases do r
 
 - [x] **PRES-01**: Slide deck com narrativa em dois atos (Problema → Motor de risco → Acoes/impacto esperado)
 - [x] **PRES-02**: Notebooks documentados por area (data foundation, EDA, ML) com outputs limpos no git
-- [ ] **PRES-03**: Streamlit multi-pagina com preditor ao vivo (input de caracteristicas de pedido → output de risco pre-entrega)
+- [x] **PRES-03**: Streamlit multi-pagina com preditor ao vivo (input de caracteristicas de pedido → output de risco pre-entrega)
 - [ ] **PRES-04**: Streamlit com mapa interativo (filtros por UF/rota)
 - [ ] **PRES-05**: Streamlit com painel de EDA navegavel (graficos principais do Ato 1)
 - [x] **PRES-06**: Relatorio escrito com achados tecnicos e recomendacoes operacionais em linguagem de negocio

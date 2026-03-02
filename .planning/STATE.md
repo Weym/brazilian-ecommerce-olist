@@ -2,13 +2,13 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: in_progress
-last_updated: "2026-03-01T00:12:00Z"
+status: unknown
+last_updated: "2026-03-02T00:59:32.958Z"
 progress:
   total_phases: 6
   completed_phases: 5
   total_plans: 22
-  completed_plans: 18
+  completed_plans: 19
 ---
 
 # Project State
@@ -23,9 +23,9 @@ See: .planning/PROJECT.md (updated 2026-03-01)
 ## Current Position
 
 Phase: 6 of 6 (Demo Streamlit e Integracao Final) — EM ANDAMENTO
-Plan: 1 of 5 in current phase — COMPLETO
-Status: Plan 06-01 complete — app.py, utils/loaders.py, pages/1_Home.py, GeoJSON offline e requirements.txt pinado — commits 6d6033d, 44d53da
-Last activity: 2026-03-01 — Plan 06-01 completo: scaffold Streamlit com entrypoint, loaders centralizados e infraestrutura
+Plan: 2 of 5 in current phase — COMPLETO
+Status: Plan 06-02 complete — pages/2_Preditor.py (gauge go.Indicator tri-color + acao recomendada) e bug fix utils/loaders.py — commit 3ca1028
+Last activity: 2026-03-02 — Plan 06-02 completo: pagina Preditor de Risco com formulario 6 inputs, gauge Plotly e acao recomendada
 
 Progress: [█████████░] 82%
 
@@ -65,6 +65,7 @@ Progress: [█████████░] 82%
 | Phase 05-narrativa-e-slides P05-03 | 3 | 1 tasks | 3 files |
 | Phase 05-narrativa-e-slides P05-03 | 10 | 2 tasks | 1 files |
 | Phase 06-demo-streamlit-e-integracao-final P06-01 | 12 | 2 tasks | 7 files |
+| Phase 06-demo-streamlit-e-integracao-final P02 | 5 | 1 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -130,6 +131,7 @@ Recent decisions affecting current work:
 - [Phase 06-01]: requirements.txt pina versoes reais do ambiente (xgboost==3.2.0, scikit-learn==1.8.0, streamlit==1.44.0) — nao as versoes conservadoras do plano — ambiente ja existia
 - [Phase 06-01]: utils/loaders.py e unico ponto de I/O — @st.cache_resource para modelos ML, @st.cache_data para DataFrames/JSON
 - [Phase 06-01]: GeoJSON brazil-states.geojson commitado offline para choropleth sem internet no evento (27 estados, properties.sigla confirmado)
+- [Phase 06-demo-streamlit-e-integracao-final]: Preditor usa 6 inputs visiveis + 7 features default (medianas gold): THRESHOLD_LOW=threshold*0.6, THRESHOLD_HIGH=threshold=0.785 para gauge tri-color
 
 ### Pending Todos
 
@@ -144,6 +146,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-01
-Stopped at: Completed 06-01-PLAN.md — app.py, utils/loaders.py, pages/1_Home.py, GeoJSON offline, requirements.txt pinado — commits 6d6033d, 44d53da
+Last session: 2026-03-02
+Stopped at: Completed 06-02-PLAN.md — pages/2_Preditor.py com gauge go.Indicator e acao recomendada — commit 3ca1028
 Resume file: None
