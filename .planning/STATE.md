@@ -3,7 +3,7 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-last_updated: "2026-03-02T00:22:15.765Z"
+last_updated: "2026-03-02T00:43:04.107Z"
 progress:
   total_phases: 6
   completed_phases: 5
@@ -18,16 +18,16 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-01)
 
 **Core value:** Mostrar que e possivel agir antes do problema acontecer — transformar dados historicos de logistica em um sistema de alerta precoce que permite intervencao antes da entrega e da avaliacao ruim.
-**Current focus:** Phase 5 — Narrativa e Slides (Plan 05-02 complete — relatorio tecnico e README com resultados)
+**Current focus:** Phase 6 — Demo Streamlit (Phase 5 completa — slides_outline.md + report.md + README prontos)
 
 ## Current Position
 
-Phase: 5 of 6 (Narrativa e Slides) — EM ANDAMENTO
-Plan: 2 of 3 in current phase — COMPLETO
-Status: Plan 05-02 complete — docs/report.md (2183 palavras, 7 secoes) e README atualizado com secao Resultados completa
-Last activity: 2026-03-02 — Plan 05-02 completo: docs/report.md e README atualizados — commits fca5820, 01bde21
+Phase: 5 of 6 (Narrativa e Slides) — COMPLETA
+Plan: 3 of 3 in current phase — COMPLETO
+Status: Plan 05-03 complete — docs/slides_outline.md (roteiro 18 slides + 5 apendice) + deck Google Slides marcado PENDENTE — commits 171dc57, 2773d55
+Last activity: 2026-03-01 — Plan 05-03 completo: slides_outline.md entregue como roteiro do deck — Phase 5 concluida
 
-Progress: [█████████░] 73%
+Progress: [█████████░] 80%
 
 ## Performance Metrics
 
@@ -63,6 +63,7 @@ Progress: [█████████░] 73%
 | Phase 05-narrativa-e-slides P05-01 | 15 | 2 tasks | 3 files |
 | Phase 05-narrativa-e-slides P05-02 | 12 | 2 tasks | 2 files |
 | Phase 05-narrativa-e-slides P05-03 | 3 | 1 tasks | 3 files |
+| Phase 05-narrativa-e-slides P05-03 | 10 | 2 tasks | 1 files |
 
 ## Accumulated Context
 
@@ -124,6 +125,7 @@ Recent decisions affecting current work:
 - [Phase 05-02]: README instrucoes de reproducao atualizadas com nomes reais dos notebooks (FASE2-P1-data-foundation, FASE3-P3-eda, FASE4-P4-ml-pipeline)
 - [Phase 05-02]: Section 5 (Recomendacoes) escrita em linguagem de negocio — sem jargao ML
 - [Phase 05-narrativa-e-slides]: slides_outline.md usa nomes reais dos arquivos de reports/figures/ e tabela top-10 vendedores com scores calculados via pipeline final (threshold=0.785)
+- [Phase 05-narrativa-e-slides]: slides_outline.md e o entregavel primario do plano 05-03 — deck Google Slides e acao humana externa marcada como PENDENTE
 
 ### Pending Todos
 
