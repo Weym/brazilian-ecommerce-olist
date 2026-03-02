@@ -34,7 +34,7 @@ geojson = load_brazil_geojson()
 COL_UF_DEST   = detect_column(df_raw, ["uf_destino", "customer_state", "estado_destino"], "uf_destino")
 COL_UF_ORIG   = detect_column(df_raw, ["uf_origem", "seller_state", "estado_origem"], "uf_origem")
 COL_PCT_BAD   = detect_column(df_raw, ["pct_bad_review", "bad_review_rate", "taxa_bad_review", "pct_ruim"], "pct_bad_review")
-COL_ATRASO    = detect_column(df_raw, ["atraso_medio_dias", "delay_avg_days", "dias_atraso_medio"], "atraso_medio_dias")
+COL_ATRASO    = detect_column(df_raw, ["avg_dias_atraso", "atraso_medio_dias", "delay_avg_days", "dias_atraso_medio"], "atraso_medio_dias")
 COL_VOLUME    = detect_column(df_raw, ["volume_pedidos", "total_orders", "n_pedidos"], "volume_pedidos")
 COL_CATEGORIA = detect_column(df_raw, ["categoria", "product_category_name_english", "category"], "categoria")
 COL_FAIXA     = detect_column(df_raw, ["faixa_risco", "risk_level", "nivel_risco"], "faixa_risco")
@@ -61,33 +61,23 @@ if COL_FAIXA not in df.columns:
     COL_FAIXA = "faixa_risco"
 
 # --- Filtros ---
+# geo_aggregated.parquet e agregado por UF de destino (27 linhas).
+# Nao ha colunas de UF origem ou categoria neste nivel de agregacao.
 st.subheader("Filtros")
-col1, col2, col3, col4 = st.columns(4)
+col1, col2 = st.columns(2)
 
 with col1:
-    opts_orig = sorted(df[COL_UF_ORIG].dropna().unique().tolist()) if COL_UF_ORIG in df.columns else []
-    uf_orig_filter = st.multiselect("UF Origem", options=opts_orig, default=[],
-                                    help="Estado do vendedor")
-with col2:
     opts_dest = sorted(df[COL_UF_DEST].dropna().unique().tolist()) if COL_UF_DEST in df.columns else []
     uf_dest_filter = st.multiselect("UF Destino", options=opts_dest, default=[],
-                                    help="Estado do comprador")
-with col3:
-    opts_cat = sorted(df[COL_CATEGORIA].dropna().unique().tolist()) if COL_CATEGORIA in df.columns else []
-    cat_filter = st.multiselect("Categoria", options=opts_cat, default=[],
-                                help="Categoria do produto")
-with col4:
+                                    help="Filtrar por estado do comprador")
+with col2:
     faixa_filter = st.multiselect("Faixa de Risco", options=["Baixo", "Medio", "Alto"], default=[],
-                                   help="Faixa de risco calculada por % bad reviews")
+                                   help="Faixa de risco calculada por % de avaliacoes ruins")
 
 # Aplicar filtros sem mutar df cacheado
 df_filtered = df.copy()
-if uf_orig_filter and COL_UF_ORIG in df_filtered.columns:
-    df_filtered = df_filtered[df_filtered[COL_UF_ORIG].isin(uf_orig_filter)]
 if uf_dest_filter and COL_UF_DEST in df_filtered.columns:
     df_filtered = df_filtered[df_filtered[COL_UF_DEST].isin(uf_dest_filter)]
-if cat_filter and COL_CATEGORIA in df_filtered.columns:
-    df_filtered = df_filtered[df_filtered[COL_CATEGORIA].isin(cat_filter)]
 if faixa_filter and COL_FAIXA in df_filtered.columns:
     df_filtered = df_filtered[df_filtered[COL_FAIXA].isin(faixa_filter)]
 

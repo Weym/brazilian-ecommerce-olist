@@ -23,29 +23,29 @@
 
 ### Pagina Preditor (2 minutos — peca central)
 
-**Cenario 1 — Risco Baixo (verde esperado)**
+> Bandas calibradas nos scores reais do modelo (distribuicao 36-48%):
+> Verde < 38% | Amarelo 38-44% | Vermelho > 44%
+> Marcador vertical no gauge = threshold operacional (78.5%)
+
+**Cenario 1 — Risco Baixo (verde)**
 - Frete: R$ 15, Preco: R$ 200, Prazo: 7 dias, Categoria: housewares, SP -> SP
-- Score esperado: < 47% (verde)
+- Score real medido: ~37.7% (verde)
 - [ ] Verificado — score: ____%
 
-**Cenario 2 — Risco Alto (vermelho esperado)**
+**Cenario 2 — Risco Medio (amarelo)**
 - Frete: R$ 80, Preco: R$ 50, Prazo: 30 dias, Categoria: furniture_decor, SP -> AM
-- Score esperado: > 78% (vermelho)
+- Score real medido: ~41.6% (amarelo)
 - [ ] Verificado — score: ____%
 
-**Cenario 3 — Risco Medio (amarelo esperado)**
-- Frete: R$ 35, Preco: R$ 120, Prazo: 15 dias, Categoria: sports_leisure, MG -> BA
-- Score esperado: 47-78% (amarelo)
+**Cenario 3 — Risco Alto (vermelho)**
+- Frete: R$ 60, Preco: R$ 80, Prazo: 25 dias, Categoria: bed_bath_table, SP -> PA
+- Score real medido: ~48.1% (vermelho)
 - [ ] Verificado — score: ____%
 
 **Cenario 4 — Input do publico (improviso controlado)**
 - Pedir para alguem da plateia sugerir valores
+- Dica: frete alto + prazo longo + rota Norte (SP->PA/AM/RR) tende a score mais alto
 - [ ] Nenhum erro ao submeter
-
-**Cenario 5 — Rotas Norte/Nordeste (risco esperado: alto)**
-- Frete: R$ 60, Preco: R$ 80, Prazo: 25 dias, Categoria: bed_bath_table, SP -> PA
-- Score esperado: alto (vermelho)
-- [ ] Verificado — score: ____%
 
 ### Pagina Mapa (1 minuto)
 - [ ] Mapa carregou com estados coloridos (27 estados no choropleth)

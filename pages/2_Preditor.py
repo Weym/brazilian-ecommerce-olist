@@ -38,12 +38,15 @@ pipeline = load_pipeline()
 threshold = load_threshold()
 categories, ufs = load_categories_and_ufs()
 
-# Thresholds tri-color derivados do threshold operacional da Phase 4 (ML-05)
-# threshold = 0.785 (Precision=0.40 na curva PR)
-# THRESHOLD_LOW = abaixo deste valor: risco baixo (verde)
-# THRESHOLD_HIGH = acima deste valor: risco alto (vermelho)
-THRESHOLD_LOW = threshold * 0.6    # ~0.471
-THRESHOLD_HIGH = threshold         # ~0.785
+# Thresholds visuais calibrados na distribuicao real do modelo (scores 36-48%).
+# O threshold operacional (0.785) tem Recall=0.02 — quase nada cruza esse valor.
+# Para a demo ser ilustrativa, as bandas visuais refletem percentis da distribuicao:
+#   Verde  < 38%  — padrao, sem alerta
+#   Amarelo 38-44% — monitorar
+#   Vermelho > 44% — contato preventivo
+# O marcador operacional (0.785) aparece no gauge como referencia de calibracao.
+THRESHOLD_LOW = 0.38
+THRESHOLD_HIGH = 0.44
 
 # Valores default (medianas do dataset Olist — Phase 2 gold table)
 # Usados para features que o formulario nao expoe ao usuario
@@ -137,9 +140,9 @@ def build_gauge(prob: float) -> tuple:
                 {"range": [THRESHOLD_HIGH * 100, 100], "color": "#fadbd8"},        # vermelho claro
             ],
             "threshold": {
-                "line": {"color": "black", "width": 4},
+                "line": {"color": "#2c3e50", "width": 3},
                 "thickness": 0.75,
-                "value": pct,
+                "value": threshold * 100,  # marca o threshold operacional (78.5%)
             },
         },
     ))
@@ -263,6 +266,12 @@ if submitted:
             st.warning(f"**Acao Recomendada:** {action}")
         else:
             st.error(f"**Acao Recomendada:** {action}")
+
+        st.caption(
+            f"Banda vertical no gauge = threshold operacional ({threshold*100:.1f}%) — "
+            "ponto de alta precisão (40% dos flagrados são risco real). "
+            "Cores mostram posição relativa na distribuição do modelo."
+        )
 
         # Detalhes para apresentacao (expander nao atrapalha o fluxo principal)
         with st.expander("Detalhes do calculo (para apresentacao)"):
