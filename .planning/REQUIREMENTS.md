@@ -43,13 +43,13 @@ Requisitos para o desafio relâmpago de 1 semana. Cada um mapeia para fases do r
 
 ### Demo e Apresentacao (PRES)
 
-- [ ] **PRES-01**: Slide deck com narrativa em dois atos (Problema → Motor de risco → Acoes/impacto esperado)
+- [x] **PRES-01**: Slide deck com narrativa em dois atos (Problema → Motor de risco → Acoes/impacto esperado)
 - [x] **PRES-02**: Notebooks documentados por area (data foundation, EDA, ML) com outputs limpos no git
 - [ ] **PRES-03**: Streamlit multi-pagina com preditor ao vivo (input de caracteristicas de pedido → output de risco pre-entrega)
 - [ ] **PRES-04**: Streamlit com mapa interativo (filtros por UF/rota)
 - [ ] **PRES-05**: Streamlit com painel de EDA navegavel (graficos principais do Ato 1)
 - [x] **PRES-06**: Relatorio escrito com achados tecnicos e recomendacoes operacionais em linguagem de negocio
-- [ ] **PRES-07**: Demo Streamlit carrega artefatos pre-computados (nunca processa dados pesados ao vivo durante apresentacao)
+- [x] **PRES-07**: Demo Streamlit carrega artefatos pre-computados (nunca processa dados pesados ao vivo durante apresentacao)
 
 ## Requisitos v2
 
@@ -108,7 +108,7 @@ Deferred para apos o desafio relâmpago.
 | PRES-03 | Phase 6: Demo Streamlit e Integracao Final | Pendente |
 | PRES-04 | Phase 6: Demo Streamlit e Integracao Final | Pendente |
 | PRES-05 | Phase 6: Demo Streamlit e Integracao Final | Pendente |
-| PRES-07 | Phase 6: Demo Streamlit e Integracao Final | Pendente |
+| PRES-07 | Phase 6: Demo Streamlit e Integracao Final | Completo |
 
 **Cobertura:**
 - Requisitos v1: 29 total

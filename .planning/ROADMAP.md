@@ -118,7 +118,7 @@ Plans:
 **Plans**: 5 plans
 
 Plans:
-- [ ] 06-01-PLAN.md — Wave 1: app.py + utils/loaders.py + pages/1_Home.py + requirements.txt + GeoJSON local
+- [x] 06-01-PLAN.md — Wave 1: app.py + utils/loaders.py + pages/1_Home.py + requirements.txt + GeoJSON local
 - [ ] 06-02-PLAN.md — Wave 1 (paralelo): pages/2_Preditor.py — formulario 5 inputs + gauge Plotly + acao recomendada
 - [ ] 06-03-PLAN.md — Wave 2: pages/3_Mapa.py — choropleth + 4 filtros interativos + hover 3 metricas
 - [ ] 06-04-PLAN.md — Wave 2 (paralelo): pages/4_EDA.py — PNGs estaticos + st.selectbox navigation
@@ -138,4 +138,4 @@ Note: Phases 3 and 4 can run in parallel after Phase 2 is complete. Phase 5 requ
 | 3. EDA — Ato 1 | 2/2 | Complete   | 2026-03-01 |
 | 4. ML — Ato 2 | 4/4 | Complete   | 2026-03-01 |
 | 5. Narrativa e Slides | 3/3 | Complete   | 2026-03-02 |
-| 6. Demo Streamlit e Integracao Final | 0/5 | Not started | - |
+| 6. Demo Streamlit e Integracao Final | 1/5 | In progress | - |

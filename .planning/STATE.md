@@ -2,13 +2,13 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: unknown
-last_updated: "2026-03-02T00:43:04.107Z"
+status: in_progress
+last_updated: "2026-03-01T00:12:00Z"
 progress:
   total_phases: 6
   completed_phases: 5
   total_plans: 22
-  completed_plans: 17
+  completed_plans: 18
 ---
 
 # Project State
@@ -22,12 +22,12 @@ See: .planning/PROJECT.md (updated 2026-03-01)
 
 ## Current Position
 
-Phase: 5 of 6 (Narrativa e Slides) — COMPLETA
-Plan: 3 of 3 in current phase — COMPLETO
-Status: Plan 05-03 complete — docs/slides_outline.md (roteiro 18 slides + 5 apendice) + deck Google Slides marcado PENDENTE — commits 171dc57, 2773d55
-Last activity: 2026-03-01 — Plan 05-03 completo: slides_outline.md entregue como roteiro do deck — Phase 5 concluida
+Phase: 6 of 6 (Demo Streamlit e Integracao Final) — EM ANDAMENTO
+Plan: 1 of 5 in current phase — COMPLETO
+Status: Plan 06-01 complete — app.py, utils/loaders.py, pages/1_Home.py, GeoJSON offline e requirements.txt pinado — commits 6d6033d, 44d53da
+Last activity: 2026-03-01 — Plan 06-01 completo: scaffold Streamlit com entrypoint, loaders centralizados e infraestrutura
 
-Progress: [█████████░] 80%
+Progress: [█████████░] 82%
 
 ## Performance Metrics
 
@@ -64,6 +64,7 @@ Progress: [█████████░] 80%
 | Phase 05-narrativa-e-slides P05-02 | 12 | 2 tasks | 2 files |
 | Phase 05-narrativa-e-slides P05-03 | 3 | 1 tasks | 3 files |
 | Phase 05-narrativa-e-slides P05-03 | 10 | 2 tasks | 1 files |
+| Phase 06-demo-streamlit-e-integracao-final P06-01 | 12 | 2 tasks | 7 files |
 
 ## Accumulated Context
 
@@ -126,6 +127,9 @@ Recent decisions affecting current work:
 - [Phase 05-02]: Section 5 (Recomendacoes) escrita em linguagem de negocio — sem jargao ML
 - [Phase 05-narrativa-e-slides]: slides_outline.md usa nomes reais dos arquivos de reports/figures/ e tabela top-10 vendedores com scores calculados via pipeline final (threshold=0.785)
 - [Phase 05-narrativa-e-slides]: slides_outline.md e o entregavel primario do plano 05-03 — deck Google Slides e acao humana externa marcada como PENDENTE
+- [Phase 06-01]: requirements.txt pina versoes reais do ambiente (xgboost==3.2.0, scikit-learn==1.8.0, streamlit==1.44.0) — nao as versoes conservadoras do plano — ambiente ja existia
+- [Phase 06-01]: utils/loaders.py e unico ponto de I/O — @st.cache_resource para modelos ML, @st.cache_data para DataFrames/JSON
+- [Phase 06-01]: GeoJSON brazil-states.geojson commitado offline para choropleth sem internet no evento (27 estados, properties.sigla confirmado)
 
 ### Pending Todos
 
@@ -140,6 +144,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-02
-Stopped at: Completed 05-02-PLAN.md — docs/report.md (2183 palavras, 7 secoes) e README atualizado com secao Resultados — commits fca5820, 01bde21
+Last session: 2026-03-01
+Stopped at: Completed 06-01-PLAN.md — app.py, utils/loaders.py, pages/1_Home.py, GeoJSON offline, requirements.txt pinado — commits 6d6033d, 44d53da
 Resume file: None
