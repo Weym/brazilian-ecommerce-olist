@@ -25,6 +25,39 @@ Transformar dados historicos de logistica em um sistema de alerta precoce que pe
 
 ---
 
+## Resultados
+
+### EDA — Ato 1: Impacto da Logistica
+
+A analise exploratoria confirma que logistica e o principal driver de avaliacoes ruins:
+
+- **Atraso** e o fator mais impactante: pedidos atrasados tem nota mediana 2,0 vs. 5,0 para pedidos no prazo (Mann-Whitney p < 0,001)
+- **Concentracao geografica:** UFs nordestinas (MA, RN, AL) concentram desproporcionalmente as avaliacoes 1-2 estrelas — proporcao de bad_review acima da media nacional de 13,9%
+- **Corredor critico:** rotas SP -> Nordeste (SP-MA, SP-CE, SP-RN) tem a maior concentracao de atrasos e avaliacoes ruins
+- **Frete:** `freight_ratio` mediano e maior em pedidos com bad_review=1 — o impacto e proporcional ao valor do pedido, nao absoluto
+
+### Modelo de Risco Pre-Entrega — Ato 2
+
+| Metrica | Baseline (LogReg) | XGBoost |
+|---------|------------------|---------|
+| PR-AUC (test set) | 0,2207 | 0,2283 |
+| Recall no threshold | 0,53 (threshold padrao) | 0,02 (threshold 0,785) |
+| Precision no threshold | — | 0,40 |
+| Pedidos flagrados/semana (estimativa) | — | 8 pedidos |
+
+**Frase-ancora operacional:** "40% dos pedidos flagrados pelo modelo sao de fato pedidos de alto risco de avaliacao ruim — permitindo intervencao preventiva antes da entrega."
+
+**Impacto estimado:** ~8 pedidos flagrados por semana com o threshold escolhido (threshold = 0,785, Precision = 0,40, Recall = 0,02).
+
+**Top features (SHAP — impacto medio absoluto):**
+1. `order_item_count` (0,188) — numero de itens no pedido
+2. `customer_state_RJ` (0,101) — pedidos com destino ao Rio de Janeiro
+3. `seller_customer_distance_km` (0,098) — distancia entre vendedor e cliente
+
+Para detalhes completos: [`docs/report.md`](docs/report.md)
+
+---
+
 ## Setup
 
 Siga os passos abaixo apos clonar o repositorio:
@@ -73,16 +106,15 @@ Para obter os dados brutos, baixe o [Brazilian E-Commerce Public Dataset by Olis
 
 ## Reproducao
 
-Execute as fases em ordem:
+Execute os notebooks na seguinte ordem a partir da **raiz do projeto**:
 
-| Fase | Descricao | Notebook principal |
-|------|-----------|--------------------|
-| 1 | Kickoff e Contratos | (este setup) |
-| 2 | Data Foundation | `FASE2-P1-consolidacao.ipynb` |
-| 3 | EDA | `FASE3-P1-eda-distribucoes.ipynb` |
-| 4 | Modelagem | `FASE4-P1-modelo-xgboost.ipynb` |
-| 5 | Narrativa e Slides | `FASE5-P1-narrativa.ipynb` |
-| 6 | Demo Streamlit | `app/app.py` |
+1. `notebooks/FASE2-P1-data-foundation.ipynb` — Constroi a tabela gold (join chain, Haversine, tagging de colunas)
+2. `notebooks/FASE3-P3-eda.ipynb` — Analise exploratoria — Ato 1 (atraso vs nota, frete, geo, rotas, categorias)
+3. `notebooks/FASE4-P4-ml-pipeline.ipynb` — Pipeline de risco pre-entrega — Ato 2 (baseline LogReg + XGBoost + SHAP + threshold)
+
+**Pre-requisito:** `pip install -r requirements.txt` e `nbstripout --install --attributes .gitattributes`
+
+Os notebooks usam `Path.cwd()` para caminhos relativos — execute sempre da raiz do projeto, nao de dentro da pasta `notebooks/`.
 
 ---
 
