@@ -18,16 +18,16 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-01)
 
 **Core value:** Mostrar que e possivel agir antes do problema acontecer — transformar dados historicos de logistica em um sistema de alerta precoce que permite intervencao antes da entrega e da avaliacao ruim.
-**Current focus:** Phase 5 — Narrativa e Slides (Plan 05-01 complete — notebooks documented)
+**Current focus:** Phase 5 — Narrativa e Slides (Plan 05-02 complete — relatorio tecnico e README com resultados)
 
 ## Current Position
 
 Phase: 5 of 6 (Narrativa e Slides) — EM ANDAMENTO
-Plan: 1 of 3 in current phase — COMPLETO
-Status: Plan 05-01 complete — tres notebooks documentados com celulas Markdown de decisao metodologica, pathlib portavel, metricas finais em texto permanente
-Last activity: 2026-03-01 — Plan 05-01 completo: FASE2/FASE3/FASE4 notebooks documented — commits 01fb04c, c26bc5d
+Plan: 2 of 3 in current phase — COMPLETO
+Status: Plan 05-02 complete — docs/report.md (2183 palavras, 7 secoes) e README atualizado com secao Resultados completa
+Last activity: 2026-03-02 — Plan 05-02 completo: docs/report.md e README atualizados — commits fca5820, 01bde21
 
-Progress: [█████████░] 68%
+Progress: [█████████░] 73%
 
 ## Performance Metrics
 
@@ -61,6 +61,7 @@ Progress: [█████████░] 68%
 | Phase 04-ml-ato-2 P04-03 | 10 | 2 tasks | 2 files |
 | Phase 04-ml-ato-2 P04-04 | 5 | 2 tasks | 2 files |
 | Phase 05-narrativa-e-slides P05-01 | 15 | 2 tasks | 3 files |
+| Phase 05-narrativa-e-slides P05-02 | 12 | 2 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -118,6 +119,9 @@ Recent decisions affecting current work:
 - [Phase 05-01]: FASE3-P3-eda.ipynb era placeholder de 2 celulas — reconstruido com 5 secoes EDA completas documentadas com decisao 'Por que'
 - [Phase 05-01]: FASE4 usava "../" relative paths — substituidos por PROJECT_ROOT / pathlib para portabilidade
 - [Phase 05-01]: Metricas finais documentadas em Markdown (nao output): PR-AUC baseline=0.2207, XGBoost=0.2283, threshold=0.785, 8 pedidos/semana flagrados
+- [Phase 05-02]: Recall=0.02 documentado como limitacao operacional conhecida (nao escondido) — modelo opera em modo de alta precisao cirurgica
+- [Phase 05-02]: README instrucoes de reproducao atualizadas com nomes reais dos notebooks (FASE2-P1-data-foundation, FASE3-P3-eda, FASE4-P4-ml-pipeline)
+- [Phase 05-02]: Section 5 (Recomendacoes) escrita em linguagem de negocio — sem jargao ML
 
 ### Pending Todos
 
@@ -132,6 +136,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-01
-Stopped at: Completed 05-01-PLAN.md — tres notebooks documentados com Markdown de decisao metodologica, pathlib portavel, metricas em texto permanente — commits 01fb04c, c26bc5d
+Last session: 2026-03-02
+Stopped at: Completed 05-02-PLAN.md — docs/report.md (2183 palavras, 7 secoes) e README atualizado com secao Resultados — commits fca5820, 01bde21
 Resume file: None
