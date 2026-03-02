@@ -75,6 +75,9 @@ nbstripout --install --attributes .gitattributes
 
 # 4. Verificar configuracao
 nbstripout --status
+
+# 5. Rodar o dashboard interativo
+streamlit run app.py
 ```
 
 > O passo 3 e **obrigatorio** para todos os contribuidores. O filtro nbstripout garante que outputs de notebooks (graficos, tabelas, dados) **nao sejam commitados** no repositorio. O filtro opera no modo `git filter` — a copia de trabalho local nao e modificada, apenas o que o git ve antes do commit.
