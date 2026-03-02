@@ -1,7 +1,39 @@
 # Roteiro do Deck — Risco Pre-Entrega Olist
-**Deck:** PENDENTE — construir manualmente seguindo este roteiro (slides_outline.md e o guia completo)
+**Deck:** PENDENTE — construir manualmente seguindo este roteiro
 **Duracao estimada:** ~20 minutos (18 slides principais)
 **Publico:** Gestores de negocio + time tecnico
+
+---
+
+## ⚠ Pendencias para Finalizar Esta Fase
+
+> Estas acoes precisam ser feitas manualmente fora do repositorio.
+
+### 1. Construir o deck no Google Slides
+
+1. Abrir [slides.google.com](https://slides.google.com) e criar nova apresentacao
+2. Para cada `## Slide XX` abaixo: criar um slide com o **Titulo**, **Corpo** e **Notas do presenter**
+3. Para slides com figura (ver tabela de inventario abaixo): inserir o PNG via **Inserir → Imagem → Enviar do computador** a partir de `reports/figures/`
+4. Slide 15 (tabela de vendedores): criar tabela no Google Slides copiando os dados da secao abaixo
+5. Adicionar apendice tecnico: slides A1–A5 apos o slide 18
+6. Compartilhar com permissao de visualizacao e copiar o link
+
+### 2. Registrar o link do deck neste arquivo
+
+Substituir a linha `**Deck:** PENDENTE...` no topo deste arquivo pelo link obtido:
+
+```
+**Deck:** https://docs.google.com/presentation/d/SEU_ID_AQUI
+```
+
+### 3. Checklist de qualidade antes de apresentar
+
+- [ ] 18 slides principais + 5 slides de apendice presentes
+- [ ] Slide 13 tem "40% dos pedidos flagrados" em destaque visual
+- [ ] Figuras inseridas nos slides corretos (ver inventario abaixo)
+- [ ] Numeros consistentes com `docs/report.md`: PR-AUC 0,2283 | threshold 0,785 | ~8 pedidos/semana
+- [ ] Slide 15 mostra tabela top-10 vendedores de risco
+- [ ] Link compartilhavel obtido e registrado neste arquivo
 
 ---
 
