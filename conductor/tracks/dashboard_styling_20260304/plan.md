@@ -16,9 +16,9 @@
 - [x] Task: Refactor Mapa page styling (`pages/3_Mapa.py`) a5aae3f
     - [x] Write tests for UI utility functions
     - [x] Apply styling to Mapa page
-- [ ] Task: Refactor EDA page styling (`pages/4_EDA.py`)
-    - [ ] Write tests for UI utility functions
-    - [ ] Apply styling to EDA page
+- [x] Task: Refactor EDA page styling (`pages/4_EDA.py`) 511ee23
+    - [x] Write tests for UI utility functions
+    - [x] Apply styling to EDA page
 - [ ] Task: Conductor - User Manual Verification 'Phase 2: Page-Specific Refactoring' (Protocol in workflow.md)
 
 ## Phase 3: Final Polish and Verification
