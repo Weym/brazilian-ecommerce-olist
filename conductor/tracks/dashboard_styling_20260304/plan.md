@@ -1,7 +1,7 @@
 # Implementation Plan: Refactor Dashboard Appearance and Page Styling
 
 ## Phase 1: Research and Global Styling
-- [ ] Task: Analyze current Streamlit theme and page structure
+- [~] Task: Analyze current Streamlit theme and page structure
 - [ ] Task: Define the "advanced look" theme in `.streamlit/config.toml`
 - [ ] Task: Create a central styling utility in `utils/ui.py`
 - [ ] Task: Conductor - User Manual Verification 'Phase 1: Research and Global Styling' (Protocol in workflow.md)
