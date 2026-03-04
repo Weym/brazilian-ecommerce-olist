@@ -3,7 +3,7 @@
 ## Phase 1: Research and Global Styling
 - [x] Task: Analyze current Streamlit theme and page structure cac8405
 - [x] Task: Define the "advanced look" theme in `.streamlit/config.toml` 3576278
-- [ ] Task: Create a central styling utility in `utils/ui.py`
+- [x] Task: Create a central styling utility in `utils/ui.py` 23aef04
 - [ ] Task: Conductor - User Manual Verification 'Phase 1: Research and Global Styling' (Protocol in workflow.md)
 
 ## Phase 2: Page-Specific Refactoring (TDD Applied)
