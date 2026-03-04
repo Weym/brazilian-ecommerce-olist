@@ -7,9 +7,9 @@
 - [x] Task: Conductor - User Manual Verification 'Phase 1: Research and Global Styling' (Protocol in workflow.md) c7e7485
 
 ## Phase 2: Page-Specific Refactoring (TDD Applied)
-- [ ] Task: Refactor Home page styling (`pages/1_Home.py`)
-    - [ ] Write tests for UI utility functions
-    - [ ] Apply styling to Home page
+- [x] Task: Refactor Home page styling (`pages/1_Home.py`) c80b4b3
+    - [x] Write tests for UI utility functions
+    - [x] Apply styling to Home page
 - [ ] Task: Refactor Preditor page styling (`pages/2_Preditor.py`)
     - [ ] Write tests for UI utility functions
     - [ ] Apply styling to Preditor page
