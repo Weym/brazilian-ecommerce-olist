@@ -13,9 +13,9 @@
 - [x] Task: Refactor Preditor page styling (`pages/2_Preditor.py`) 294119d
     - [x] Write tests for UI utility functions
     - [x] Apply styling to Preditor page
-- [ ] Task: Refactor Mapa page styling (`pages/3_Mapa.py`)
-    - [ ] Write tests for UI utility functions
-    - [ ] Apply styling to Mapa page
+- [x] Task: Refactor Mapa page styling (`pages/3_Mapa.py`) a5aae3f
+    - [x] Write tests for UI utility functions
+    - [x] Apply styling to Mapa page
 - [ ] Task: Refactor EDA page styling (`pages/4_EDA.py`)
     - [ ] Write tests for UI utility functions
     - [ ] Apply styling to EDA page
