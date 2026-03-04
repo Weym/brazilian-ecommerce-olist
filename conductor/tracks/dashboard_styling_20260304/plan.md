@@ -10,9 +10,9 @@
 - [x] Task: Refactor Home page styling (`pages/1_Home.py`) c80b4b3
     - [x] Write tests for UI utility functions
     - [x] Apply styling to Home page
-- [ ] Task: Refactor Preditor page styling (`pages/2_Preditor.py`)
-    - [ ] Write tests for UI utility functions
-    - [ ] Apply styling to Preditor page
+- [x] Task: Refactor Preditor page styling (`pages/2_Preditor.py`) 294119d
+    - [x] Write tests for UI utility functions
+    - [x] Apply styling to Preditor page
 - [ ] Task: Refactor Mapa page styling (`pages/3_Mapa.py`)
     - [ ] Write tests for UI utility functions
     - [ ] Apply styling to Mapa page
