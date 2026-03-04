@@ -1,18 +1,13 @@
 import streamlit as st
+from utils.ui import page_header
 
-st.set_page_config(
-    page_title="Olist Risk Dashboard",
-    page_icon="📦",
-    layout="wide",
-    initial_sidebar_state="expanded",
-)
+page_header("Painel Olist Risk", icon="📦")
 
-st.title("Olist — Sistema de Alerta de Risco Pre-Entrega")
 st.markdown("""
-Bem-vindo ao dashboard de risco logistico da Olist. Use o menu lateral para navegar:
+Bem-vindo ao dashboard de risco logístico da Olist. Use o menu lateral para navegar:
 
-- **Preditor de Risco**: Estime o risco de avaliacao ruim para um pedido antes da entrega
-- **Mapa Geografico**: Visualize concentracao de avaliacoes ruins por estado brasileiro
-- **Painel de EDA**: Explore as analises do Ato 1 — logistica degrada satisfacao
+- **Preditor de Risco**: Estime o risco de avaliação ruim para um pedido antes da entrega
+- **Mapa Geográfico**: Visualize concentração de avaliações ruins por estado brasileiro
+- **Painel de EDA**: Explore as análises do Ato 1 — logística degrada satisfação
 """)
-st.info("Todos os dados sao pre-computados. Nenhum processamento pesado ocorre ao vivo.")
+st.info("Todos os dados são pré-computados. Nenhum processamento pesado ocorre ao vivo.")

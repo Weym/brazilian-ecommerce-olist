@@ -22,13 +22,10 @@ import pandas as pd
 import plotly.graph_objects as go
 
 from utils.loaders import load_pipeline, load_threshold, load_categories_and_ufs
+from utils.ui import page_header
 
-# CRITICO: st.set_page_config deve ser a primeira chamada Streamlit
-st.set_page_config(
-    page_title="Preditor de Risco — Olist",
-    page_icon="⚡",
-    layout="wide",
-)
+# CRITICO: page_header deve ser a primeira chamada Streamlit
+page_header("Preditor de Risco", icon="⚡")
 
 # ---------------------------------------------------------------------------
 # Carregamento de artefatos no topo do modulo
@@ -188,10 +185,9 @@ def build_gauge(prob: float) -> tuple:
 # ---------------------------------------------------------------------------
 # UI — Cabecalho
 # ---------------------------------------------------------------------------
-st.title("Preditor de Risco Pre-Entrega")
 st.markdown(
-    "Insira as caracteristicas do pedido para estimar a probabilidade de "
-    "avaliacao ruim (1-2 estrelas) **antes da entrega**."
+    "Insira as características do pedido para estimar a probabilidade de "
+    "avaliação ruim (1-2 estrelas) **antes da entrega**."
 )
 st.divider()
 

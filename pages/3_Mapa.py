@@ -7,12 +7,9 @@ import sys
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from utils.loaders import load_geo_data, load_brazil_geojson
+from utils.ui import page_header
 
-st.set_page_config(
-    page_title="Mapa Geografico — Olist",
-    page_icon="🗺️",
-    layout="wide",
-)
+page_header("Mapa Geográfico", icon="🗺️")
 
 
 def detect_column(df: pd.DataFrame, candidates: list, default: str) -> str:
@@ -23,8 +20,7 @@ def detect_column(df: pd.DataFrame, candidates: list, default: str) -> str:
     return default
 
 
-st.title("Mapa de Risco Logistico por Estado")
-st.markdown("Concentracao de avaliacoes ruins (1-2 estrelas) por UF de destino.")
+st.markdown("Concentração de avaliações ruins (1-2 estrelas) por UF de destino.")
 
 # Carregamento via loaders (cache_data — instantaneo apos primeira visita)
 df_raw = load_geo_data()

@@ -5,17 +5,13 @@ import sys
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from utils.loaders import list_eda_figures
+from utils.ui import page_header
 
-st.set_page_config(
-    page_title="Painel de EDA — Olist",
-    page_icon="📊",
-    layout="wide",
-)
+page_header("Painel de EDA", icon="📊")
 
-st.title("Painel de EDA — Ato 1: Logistica Degrada Satisfacao")
 st.markdown(
-    "Graficos exportados da Phase 3 que provam o impacto logistico nas avaliacoes. "
-    "Use o seletor abaixo para navegar entre as analises."
+    "Gráficos exportados da Phase 3 que provam o impacto logístico nas avaliações. "
+    "Use o seletor abaixo para navegar entre as análises."
 )
 
 # Carregar lista de figuras via loader (cacheado em loaders.py)
