@@ -1,8 +1,0 @@
-{
-  "track_id": "dashboard_styling_20260304",
-  "type": "feature",
-  "status": "new",
-  "created_at": "2026-03-04T15:29:58Z",
-  "updated_at": "2026-03-04T15:29:58Z",
-  "description": "Refactor the appearance of the dashboard to give it an advanced look without changing actual graphs, focusing on page styling and custom CSS."
-}
