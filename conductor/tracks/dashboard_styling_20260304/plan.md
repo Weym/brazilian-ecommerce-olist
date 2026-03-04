@@ -22,6 +22,6 @@
 - [x] Task: Conductor - User Manual Verification 'Phase 2: Page-Specific Refactoring' (Protocol in workflow.md) f64c3db
 
 ## Phase 3: Final Polish and Verification
-- [ ] Task: Refine sidebar and navigation styling
-- [ ] Task: Final cross-page consistency check
+- [x] Task: Refine sidebar and navigation styling 67f2985
+- [x] Task: Final cross-page consistency check 67f2985
 - [ ] Task: Conductor - User Manual Verification 'Phase 3: Final Polish and Verification' (Protocol in workflow.md)
