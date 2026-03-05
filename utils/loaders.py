@@ -14,6 +14,31 @@ from pathlib import Path
 BASE = Path(__file__).parent.parent  # raiz do projeto
 
 
+@st.cache_data
+def load_gold_data() -> pd.DataFrame:
+    """
+    Carrega a base gold Olist (data/gold/olist_gold.parquet).
+    """
+    path = BASE / "data" / "gold" / "olist_gold.parquet"
+    if not path.exists():
+        raise FileNotFoundError(
+            f"Base gold nao encontrada em {path}. "
+            "Execute a construcao da base gold antes de iniciar o app."
+        )
+    return pd.read_parquet(path)
+
+
+def resolve_revenue_column(df: pd.DataFrame) -> str:
+    """
+    Identifica a coluna de receita no DataFrame.
+    Retorna 'payment_value' ou 'price' ou 'revenue', o que for encontrado.
+    """
+    for col in ['payment_value', 'price', 'revenue', 'receita']:
+        if col in df.columns:
+            return col
+    # Fallback padrao
+    return 'payment_value'
+
 @st.cache_resource
 def load_pipeline():
     """
