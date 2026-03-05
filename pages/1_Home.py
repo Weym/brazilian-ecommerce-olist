@@ -3,38 +3,45 @@ from utils.ui import page_header
 
 page_header("Home", icon="📦")
 
-st.markdown("""
-## O Problema
+st.subheader("Objetivo do Projeto")
+st.markdown(
+    """
+Reduzir avaliações ruins (notas 1-2) com ação preventiva antes da entrega.
+O foco é identificar risco logístico cedo para priorizar operação e atendimento.
+"""
+)
 
-Avaliações ruins (1–2 estrelas) custam clientes e reputação.
-A maioria é causada por problemas logísticos — atraso, frete caro, rotas críticas.
+st.subheader("Fluxo das Páginas")
+st.markdown(
+    """
+1. **Visão Exploratória**: principais descobertas e hipótese central.  
+2. **EDA**: evidências visuais-chave das análises.  
+3. **Mapa**: priorização geográfica de risco.  
+4. **Preditor**: demonstração prática e ação recomendada.
+"""
+)
 
-**Podemos prever o risco antes da entrega acontecer.**
+st.subheader("Hipótese Principal")
+st.markdown(
+    """
+Pedidos com sinais logísticos desfavoráveis (atraso potencial, frete relativo alto,
+rotas críticas e algumas categorias) têm maior chance de receber nota 1-2.
+"""
+)
 
----
+st.subheader("Como Ler o Dashboard")
+st.markdown(
+    """
+- Comece na Visão Exploratória para entender o problema e os drivers.  
+- Use EDA e Mapa para validar onde o risco aparece com mais força.  
+- Termine no Preditor para simular pedidos e decidir a ação operacional.
+"""
+)
 
-## O que Este Dashboard Faz
-
-| Página | O que mostra | Dados usados |
-|--------|-------------|-------------|
-| **Preditor de Risco** | Score 0–100% de risco para um pedido | Pipeline XGBoost (Phase 4) |
-| **Mapa Geográfico** | Concentração de avaliações ruins por UF | geo_aggregated.parquet (Phase 3) |
-| **Painel de EDA** | Evidências visuais do impacto logístico | Figuras PNG exportadas (Phase 3) |
-
----
-
-## Como Usar
-
-Use o menu lateral para navegar entre as páginas.
-
-**Teste rápido:** Vá em **Preditor de Risco**, insira frete alto (R$ 80+), prazo longo (30+ dias),
-UF origem SP e destino AM — o score deve mostrar risco alto (vermelho).
-""")
-
-col1, col2, col3 = st.columns(3)
-with col1:
-    st.metric("Features pré-entrega", "5", help="Disponíveis antes da expedição")
-with col2:
-    st.metric("Modelo", "XGBoost", help="Treinado na Phase 4")
-with col3:
-    st.metric("Dados ao vivo", "Nenhum", help="Todos artefatos são pré-computados")
+c1, c2, c3 = st.columns(3)
+with c1:
+    st.metric("Problema", "Nota 1-2")
+with c2:
+    st.metric("Foco", "Pré-entrega")
+with c3:
+    st.metric("Decisão", "Ação preventiva")

@@ -1,13 +1,14 @@
 import streamlit as st
-from utils.ui import page_header
 
-page_header("Painel Olist Risk", icon="📦")
+# Navegação explícita para evitar o item "app" no menu lateral.
+pg = st.navigation(
+    [
+        st.Page("pages/1_Home.py", title="Home"),
+        st.Page("pages/2_Visão_Exploratória.py", title="Visão Exploratória"),
+        st.Page("pages/3_EDA.py", title="EDA"),
+        st.Page("pages/4_Mapa.py", title="Mapa"),
+        st.Page("pages/5_Preditor.py", title="Preditor"),
+    ]
+)
 
-st.markdown("""
-Bem-vindo ao dashboard de risco logístico da Olist. Use o menu lateral para navegar:
-
-- **Preditor de Risco**: Estime o risco de avaliação ruim para um pedido antes da entrega
-- **Mapa Geográfico**: Visualize concentração de avaliações ruins por estado brasileiro
-- **Painel de EDA**: Explore as análises do Ato 1 — logística degrada satisfação
-""")
-st.info("Todos os dados são pré-computados. Nenhum processamento pesado ocorre ao vivo.")
+pg.run()
