@@ -1,10 +1,10 @@
 import streamlit as st
 
+
 def apply_global_css():
     """Injeta CSS customizado para melhorar a estética geral."""
     custom_css = """
     <style>
-    /* Estilo para métricas: bordas arredondadas e sombra suave */
     [data-testid="stMetricValue"] {
         font-size: 1.8rem !important;
         font-weight: 700 !important;
@@ -17,7 +17,6 @@ def apply_global_css():
         border-left: 5px solid #e74c3c;
     }
 
-    /* Estilo para o sidebar */
     [data-testid="stSidebar"] {
         background-color: #f0f2f6 !important;
     }
@@ -25,25 +24,21 @@ def apply_global_css():
         padding-top: 1rem;
     }
 
-    /* Estilo para dividers */
     hr {
         margin: 1.5rem 0 !important;
         border-top: 1px solid #e0e0e0 !important;
     }
 
-    /* Melhoria tipográfica geral */
     h1, h2, h3 {
         color: #2c3e50 !important;
         font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     }
 
-    /* Estilo para expanders */
     .streamlit-expanderHeader {
         background-color: #fdfdfd;
         border-radius: 8px;
     }
 
-    /* Ajuste para botões primários */
     .stButton>button {
         border-radius: 20px;
         font-weight: 600;
@@ -57,42 +52,38 @@ def apply_global_css():
     """
     st.markdown(custom_css, unsafe_allow_html=True)
 
+
 def add_sidebar_branding():
-    """Adiciona elementos de marca e navegação customizada ao sidebar."""
+    """Adiciona elementos de marca e navegação ao menu lateral."""
     with st.sidebar:
-        st.markdown("""
-        <div style="text-align: center; padding-bottom: 1rem;">
-            <h1 style="font-size: 1.5rem; margin-bottom: 0;">📦 Olist Risk</h1>
-            <p style="font-size: 0.8rem; color: #666;">Monitoramento em Tempo Real</p>
-            <div style="display: flex; justify-content: center; align-items: center; gap: 5px; margin-top: 5px;">
-                <span style="height: 10px; width: 10px; background-color: #2ecc71; border-radius: 50%; display: inline-block; animation: pulse 2s infinite;"></span>
-                <span style="font-size: 0.7rem; color: #2ecc71; font-weight: bold; text-transform: uppercase;">Live</span>
+        st.markdown(
+            """
+            <div style="text-align: center; padding-bottom: 1rem;">
+                <h1 style="font-size: 1.5rem; margin-bottom: 0;">📦 Olist Risk</h1>
+                <p style="font-size: 0.8rem; color: #666;">Monitoramento em Tempo Real</p>
+                <div style="display: flex; justify-content: center; align-items: center; gap: 5px; margin-top: 5px;">
+                    <span style="height: 10px; width: 10px; background-color: #2ecc71; border-radius: 50%; display: inline-block; animation: pulse 2s infinite;"></span>
+                    <span style="font-size: 0.7rem; color: #2ecc71; font-weight: bold; text-transform: uppercase;">Ao vivo</span>
+                </div>
             </div>
-        </div>
-        <style>
-        @keyframes pulse {
-            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.7); }
-            70% { transform: scale(1); box-shadow: 0 0 0 5px rgba(46, 204, 113, 0); }
-            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 204, 113, 0); }
-        }
-        </style>
-        """, unsafe_allow_html=True)
-        st.divider()
-
-        st.info("**💡 Dica:** Use o Preditor de Risco para simular novos pedidos.")
-
-        st.sidebar.markdown("---")
-        st.sidebar.markdown(
-            '<div style="text-align: center; font-size: 0.7rem; color: #999;">'
-            'Phase 6 | Brazilian Ecommerce Olist'
-            '</div>',
-            unsafe_allow_html=True
+            <style>
+            @keyframes pulse {
+                0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.7); }
+                70% { transform: scale(1); box-shadow: 0 0 0 5px rgba(46, 204, 113, 0); }
+                100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 204, 113, 0); }
+            }
+            </style>
+            """,
+            unsafe_allow_html=True,
         )
+        st.divider()
+        st.info("Dica: use o Preditor para simular cenários de risco.")
+
 
 def page_header(title, icon="📊"):
     """Cria um cabeçalho padronizado para as páginas."""
     st.set_page_config(
-        page_title=f"{title} — Olist Risk",
+        page_title=f"{title} - Olist Risk",
         page_icon=icon,
         layout="wide",
     )
