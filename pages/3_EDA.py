@@ -54,12 +54,16 @@ def make_label(path: Path) -> str:
 fig_labels = [make_label(f) for f in figures]
 fig_map = dict(zip(fig_labels, figures))
 
+if "eda_selected" not in st.session_state and fig_labels:
+    st.session_state["eda_selected"] = fig_labels[0]
+
 # Selectbox de navegacao
 col_select, col_info = st.columns([3, 1])
 with col_select:
     selected_label = st.selectbox(
         "Selecione o Gráfico",
         options=fig_labels,
+        key="eda_selected",
         help=f"{len(figures)} gráficos disponíveis",
     )
 with col_info:
@@ -95,17 +99,22 @@ if context_text:
 # Navegacao rapida com botoes prev/next
 st.divider()
 col_prev, col_idx, col_next = st.columns([1, 2, 1])
+
+def prev_fig():
+    idx = fig_labels.index(st.session_state["eda_selected"])
+    if idx > 0:
+        st.session_state["eda_selected"] = fig_labels[idx - 1]
+
+def next_fig():
+    idx = fig_labels.index(st.session_state["eda_selected"])
+    if idx < len(fig_labels) - 1:
+        st.session_state["eda_selected"] = fig_labels[idx + 1]
+
 current_idx = fig_labels.index(selected_label)
 
 with col_prev:
-    if current_idx > 0:
-        if st.button("← Anterior", use_container_width=True):
-            st.session_state["eda_selected"] = fig_labels[current_idx - 1]
-            st.rerun()
+    st.button("← Anterior", use_container_width=True, on_click=prev_fig, disabled=(current_idx == 0))
 with col_idx:
     st.caption(f"Gráfico {current_idx + 1} de {len(figures)}")
 with col_next:
-    if current_idx < len(figures) - 1:
-        if st.button("Próximo →", use_container_width=True):
-            st.session_state["eda_selected"] = fig_labels[current_idx + 1]
-            st.rerun()
+    st.button("Próximo →", use_container_width=True, on_click=next_fig, disabled=(current_idx == len(figures) - 1))
