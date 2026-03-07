@@ -1,6 +1,7 @@
-import streamlit as st
-from pathlib import Path
 import sys
+from pathlib import Path
+
+import streamlit as st
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
@@ -35,7 +36,20 @@ def make_label(path: Path) -> str:
     # Remover prefixos numericos tipo "01_", "02_"
     if stem[:3].replace("_", "").isdigit():
         stem = stem[3:]
-    return stem.replace("_", " ").replace("-", " ").title()
+    
+    label = stem.replace("_", " ").replace("-", " ").title()
+    
+    # Traducoes pontuais para o menu de leitura
+    label = label.replace("Bad Reviews", "Notas Baixas")
+    label = label.replace("Bad Review", "Nota Baixa")
+    label = label.replace("Uf", "UF")
+    label = label.replace("Eda", "EDA")
+    label = label.replace("Ratio", "Relativo")
+    label = label.replace("Freight", "Frete")
+    label = label.replace("Delay", "Atraso")
+    label = label.replace("Orders", "Pedidos")
+    
+    return label
 
 fig_labels = [make_label(f) for f in figures]
 fig_map = dict(zip(fig_labels, figures))
@@ -44,12 +58,12 @@ fig_map = dict(zip(fig_labels, figures))
 col_select, col_info = st.columns([3, 1])
 with col_select:
     selected_label = st.selectbox(
-        "Selecione o Grafico",
+        "Selecione o Gráfico",
         options=fig_labels,
-        help=f"{len(figures)} graficos disponíveis",
+        help=f"{len(figures)} gráficos disponíveis",
     )
 with col_info:
-    st.metric("Graficos Disponíveis", len(figures))
+    st.metric("Gráficos Disponíveis", len(figures))
 
 selected_path = fig_map[selected_label]
 
@@ -76,7 +90,7 @@ for keyword, text in CONTEXT_MAP.items():
         break
 
 if context_text:
-    st.caption(f"Interpretacao: {context_text}")
+    st.caption(f"Interpretação: {context_text}")
 
 # Navegacao rapida com botoes prev/next
 st.divider()
@@ -89,9 +103,9 @@ with col_prev:
             st.session_state["eda_selected"] = fig_labels[current_idx - 1]
             st.rerun()
 with col_idx:
-    st.caption(f"Grafico {current_idx + 1} de {len(figures)}")
+    st.caption(f"Gráfico {current_idx + 1} de {len(figures)}")
 with col_next:
     if current_idx < len(figures) - 1:
-        if st.button("Proximo →", use_container_width=True):
+        if st.button("Próximo →", use_container_width=True):
             st.session_state["eda_selected"] = fig_labels[current_idx + 1]
             st.rerun()
