@@ -1,7 +1,7 @@
 import streamlit as st
 from utils.ui import page_header
 
-page_header("Home", icon="📦")
+page_header("Início", icon="📦")
 
 st.subheader("Objetivo do Projeto")
 st.markdown(

@@ -1,12 +1,13 @@
-import streamlit as st
+import sys
+from pathlib import Path
+
 import pandas as pd
 import plotly.express as px
-from pathlib import Path
-import sys
+import streamlit as st
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from utils.loaders import load_geo_data, load_brazil_geojson
+from utils.loaders import load_brazil_geojson, load_geo_data
 from utils.ui import page_header
 
 page_header("Mapa Geográfico", icon="🗺️")
@@ -52,7 +53,7 @@ if COL_FAIXA not in df.columns:
     df["faixa_risco"] = pd.cut(
         df[col_color],
         bins=[-1, threshold_low, threshold_bad, float("inf")],
-        labels=["Baixo", "Medio", "Alto"],
+        labels=["Baixo", "Médio", "Alto"],
     )
     COL_FAIXA = "faixa_risco"
 
@@ -65,10 +66,12 @@ col1, col2 = st.columns(2)
 with col1:
     opts_dest = sorted(df[COL_UF_DEST].dropna().unique().tolist()) if COL_UF_DEST in df.columns else []
     uf_dest_filter = st.multiselect("UF Destino", options=opts_dest, default=[],
-                                    help="Filtrar por estado do comprador")
+                                    help="Filtrar por estado do comprador",
+                                    placeholder="Selecione as opções...")
 with col2:
-    faixa_filter = st.multiselect("Faixa de Risco", options=["Baixo", "Medio", "Alto"], default=[],
-                                   help="Faixa de risco calculada por % de avaliacoes ruins")
+    faixa_filter = st.multiselect("Faixa de Risco", options=["Baixo", "Médio", "Alto"], default=[],
+                                   help="Faixa de risco calculada por % de avaliações ruins",
+                                   placeholder="Selecione as opções...")
 
 # Aplicar filtros sem mutar df cacheado
 df_filtered = df.copy()
@@ -110,10 +113,10 @@ fig = px.choropleth(
     hover_data=hover_data,
     labels={
         col_color: color_label,
-        COL_ATRASO: "Atraso Medio (dias)",
+        COL_ATRASO: "Atraso Médio (dias)",
         COL_VOLUME: "Volume de Pedidos",
     },
-    title="% Avaliacoes Ruins por UF de Destino",
+    title="% Avaliações Ruins por UF de Destino",
 )
 fig.update_geos(fitbounds="locations", visible=False)
 fig.update_layout(
@@ -133,7 +136,7 @@ if not df_map.empty:
             st.metric("UF com Mais Risco", worst_uf)
     with m2:
         if COL_ATRASO in df_map.columns:
-            st.metric("Atraso Medio Geral", f"{df_map[COL_ATRASO].mean():.1f} dias")
+            st.metric("Atraso Médio Geral", f"{df_map[COL_ATRASO].mean():.1f} dias")
     with m3:
         if COL_VOLUME in df_map.columns:
             st.metric("Pedidos no Filtro", f"{int(df_map[COL_VOLUME].sum()):,}")
