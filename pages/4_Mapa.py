@@ -57,6 +57,9 @@ if COL_FAIXA not in df.columns:
     )
     COL_FAIXA = "faixa_risco"
 
+global_min = df[col_color].min()
+global_max = df[col_color].max()
+
 # --- Filtros ---
 # geo_aggregated.parquet e agregado por UF de destino (27 linhas).
 # Nao ha colunas de UF origem ou categoria neste nivel de agregacao.
@@ -109,6 +112,7 @@ fig = px.choropleth(
     featureidkey="properties.sigla",   # CRITICO: campo correto no GeoJSON codeforamerica
     color=col_color,
     color_continuous_scale="Reds",
+    range_color=[global_min, global_max],
     hover_name=COL_UF_DEST,
     hover_data=hover_data,
     labels={
