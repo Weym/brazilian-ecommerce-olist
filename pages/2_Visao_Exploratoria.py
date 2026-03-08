@@ -1,104 +1,22 @@
-﻿import streamlit as st
-import pandas as pd
-import numpy as np
-import plotly.express as px
+﻿import sys
 from pathlib import Path
-import sys
+
+import numpy as np
+import pandas as pd
+import plotly.express as px
+import streamlit as st
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from utils.loaders import load_gold_data, resolve_revenue_column
-from utils.ui import page_header
+from utils.ui import category_label_pt, page_header
 
 page_header('Visão Exploratória', icon='🔎')
 #st.caption('Da descrição da base até a escolha da estratégia do projeto (predição de nota baixa pré-entrega).')
 
 
-CATEGORY_PT_MAP = {
-    'agro_industry_and_commerce': 'Agro, Indústria e Comércio',
-    'air_conditioning': 'Ar-condicionado',
-    'art': 'Arte',
-    'arts_and_craftmanship': 'Artes e Artesanato',
-    'audio': 'Áudio',
-    'auto': 'Automotivo',
-    'baby': 'Bebê',
-    'bed_bath_table': 'Cama, Mesa e Banho',
-    'books_general_interest': 'Livros de Interesse Geral',
-    'books_imported': 'Livros Importados',
-    'books_technical': 'Livros Técnicos',
-    'cds_dvds_musicals': 'CDs, DVDs e Musicais',
-    'christmas_supplies': 'Artigos de Natal',
-    'cine_photo': 'Cine e Foto',
-    'computers': 'Computadores',
-    'computers_accessories': 'Informática e Acessórios',
-    'consoles_games': 'Consoles e Games',
-    'construction_tools_construction': 'Ferramentas para Construção',
-    'construction_tools_lights': 'Ferramentas e Iluminação',
-    'construction_tools_safety': 'Ferramentas e Segurança',
-    'cool_stuff': 'Produtos Criativos',
-    'costruction_tools_garden': 'Ferramentas para Jardim',
-    'costruction_tools_tools': 'Ferramentas em Geral',
-    'diapers_and_hygiene': 'Fraldas e Higiene',
-    'drinks': 'Bebidas',
-    'dvds_blu_ray': 'DVDs e Blu-ray',
-    'electronics': 'Eletrônicos',
-    'fashio_female_clothing': 'Moda Feminina',
-    'fashion_bags_accessories': 'Bolsas e Acessórios',
-    'fashion_childrens_clothes': 'Moda Infantil',
-    'fashion_male_clothing': 'Moda Masculina',
-    'fashion_shoes': 'Calçados',
-    'fashion_sport': 'Moda Esportiva',
-    'fashion_underwear_beach': 'Moda Praia e Íntima',
-    'fixed_telephony': 'Telefonia Fixa',
-    'flowers': 'Flores',
-    'food': 'Alimentos',
-    'food_drink': 'Alimentos e Bebidas',
-    'furniture_bedroom': 'Móveis para Quarto',
-    'furniture_decor': 'Móveis e Decoração',
-    'furniture_living_room': 'Móveis para Sala',
-    'furniture_mattress_and_upholstery': 'Colchões e Estofados',
-    'garden_tools': 'Ferramentas para Jardim',
-    'health_beauty': 'Saúde e Beleza',
-    'home_appliances': 'Eletrodomésticos',
-    'home_appliances_2': 'Eletrodomésticos 2',
-    'home_comfort_2': 'Conforto para Casa 2',
-    'home_confort': 'Conforto para Casa',
-    'home_construction': 'Construção para Casa',
-    'housewares': 'Utilidades Domésticas',
-    'industry_commerce_and_business': 'Indústria, Comércio e Negócios',
-    'kitchen_dining_laundry_garden_furniture': 'Cozinha, Jantar, Lavanderia e Jardim',
-    'la_cuisine': 'Cozinha Gourmet',
-    'luggage_accessories': 'Malas e Acessórios',
-    'market_place': 'Marketplace',
-    'music': 'Música',
-    'musical_instruments': 'Instrumentos Musicais',
-    'office_furniture': 'Móveis de Escritório',
-    'party_supplies': 'Artigos para Festa',
-    'perfumery': 'Perfumaria',
-    'pet_shop': 'Pet Shop',
-    'security_and_services': 'Segurança e Serviços',
-    'signaling_and_security': 'Sinalização e Segurança',
-    'small_appliances': 'Eletroportáteis',
-    'small_appliances_home_oven_and_coffee': 'Eletroportáteis para Forno e Café',
-    'sports_leisure': 'Esporte e Lazer',
-    'stationery': 'Papelaria',
-    'tablets_printing_image': 'Tablets, Impressão e Imagem',
-    'telephony': 'Telefonia',
-    'toys': 'Brinquedos',
-    'watches_gifts': 'Relógios e Presentes',
-    'unknown': 'Desconhecida',
-}
-
-
-def category_label_pt(value: str) -> str:
-    key = str(value).strip().lower()
-    return CATEGORY_PT_MAP.get(key, str(value).replace('_', ' ').title())
-
-
 def format_millions(value: float) -> str:
     return f"{(value / 1_000_000):.2f} M"
-
-
 def has_cols(df: pd.DataFrame, cols: list[str]) -> bool:
     return all(c in df.columns for c in cols)
 
@@ -210,6 +128,18 @@ if clients_col in df.columns and 'bad_review' in df.columns:
 else:
     clientes_nota_baixa = 0
 
+payment_map = {
+    'credit_card': 'Cartão de Crédito',
+    'boleto': 'Boleto',
+    'voucher': 'Voucher',
+    'debit_card': 'Cartão de Débito'
+}
+if 'payment_type' in df.columns and df['payment_type'].notna().any():
+    raw_pag = df['payment_type'].mode(dropna=True).iloc[0]
+    moda_pag = payment_map.get(raw_pag, str(raw_pag).replace('_', ' ').title())
+else:
+    moda_pag = '-'
+
 # 4 caixas embaixo (clientes com nota 1-2 na mesma coluna do número de clientes)
 b1, b2, b3, b4 = st.columns(4)
 b1.metric('Avaliação média', '-' if pd.isna(review_mean) else f"{review_mean:.2f}")
@@ -241,7 +171,8 @@ eda_tab1, eda_tab2, eda_tab3 = st.tabs(['Distribuições', 'Drivers de Nota Baix
 with eda_tab1:
     if 'review_score' in df.columns:
         dist_review = df['review_score'].value_counts().sort_index().rename_axis('nota').reset_index(name='pedidos')
-        fig = px.bar(dist_review, x='nota', y='pedidos', title='Distribuição de avaliações')
+        fig = px.bar(dist_review, x='nota', y='pedidos', title='Distribuição de avaliações',
+                     labels={'nota': 'Nota', 'pedidos': 'Pedidos'})
         fig.update_layout(height=340, margin={'t': 45, 'l': 10, 'r': 10, 'b': 10})
         st.plotly_chart(fig, use_container_width=True)
 
@@ -261,7 +192,8 @@ with eda_tab2:
                 pedidos=('order_id', 'nunique'), bad_rate=('bad_review', 'mean')
             )
             v['bad_rate_pct'] = v['bad_rate'] * 100
-            fig = px.line(v, x='delay_faixa', y='bad_rate_pct', markers=True, title='Atraso x taxa de nota 1-2')
+            fig = px.line(v, x='delay_faixa', y='bad_rate_pct', markers=True, title='Atraso x taxa de nota 1-2',
+                          labels={'delay_faixa': 'Faixa de Atraso', 'bad_rate_pct': '% Nota Baixa'})
             fig.update_layout(height=340, margin={'t': 45, 'l': 10, 'r': 10, 'b': 10})
             fig.update_yaxes(title='Taxa de nota 1-2 (%)')
             st.plotly_chart(fig, use_container_width=True)
@@ -273,7 +205,8 @@ with eda_tab2:
             n_decis = int(frv['decil_idx'].max()) + 1 if not frv.empty else 1
             frv['decil_pct'] = (((frv['decil_idx'] + 1) / n_decis) * 100).round().astype(int).astype(str) + '%'
             frv['bad_rate_pct'] = frv['bad_rate'] * 100
-            fig = px.line(frv, x='decil_pct', y='bad_rate_pct', markers=True, title='Frete relativo x taxa de nota 1-2')
+            fig = px.line(frv, x='decil_pct', y='bad_rate_pct', markers=True, title='Frete relativo x taxa de nota 1-2',
+                          labels={'decil_pct': 'Decil Frete/Preço', 'bad_rate_pct': '% Nota Baixa'})
             fig.update_layout(height=340, margin={'t': 45, 'l': 10, 'r': 10, 'b': 10})
             fig.update_xaxes(title='Decil de frete relativo (%)')
             fig.update_yaxes(title='Taxa de nota 1-2 (%)')
@@ -294,7 +227,8 @@ with eda_tab2:
                 x='prazo_faixa',
                 y='nota_media',
                 markers=True,
-                title='Correlação: prazo estimado de entrega x nota média'
+                title='Correlação: prazo estimado de entrega x nota média',
+                labels={'prazo_faixa': 'Faixa de Prazo', 'nota_media': 'Nota Média'}
             )
             fig_corr.update_layout(height=340, margin={'t': 45, 'l': 10, 'r': 10, 'b': 10})
             fig_corr.update_xaxes(title='Faixa de prazo estimado (dias)')
@@ -318,7 +252,8 @@ with eda_tab3:
                 route['rota'] = route['seller_state'].astype(str) + ' -> ' + route['customer_state'].astype(str)
                 route['bad_rate_pct'] = route['bad_rate'] * 100
                 fig = px.bar(route.nlargest(12, 'bad_rate_pct').sort_values('bad_rate_pct'), x='bad_rate_pct', y='rota', orientation='h',
-                             title='Principais rotas críticas por taxa de nota 1-2')
+                             title='Principais rotas críticas por taxa de nota 1-2',
+                             labels={'bad_rate_pct': '% Nota Baixa', 'rota': 'Rota'})
                 fig.update_layout(height=380, margin={'t': 45, 'l': 10, 'r': 10, 'b': 10})
                 fig.update_xaxes(title='Taxa de nota 1-2 (%)')
                 st.plotly_chart(fig, use_container_width=True)
@@ -333,7 +268,8 @@ with eda_tab3:
                 cat['categoria_pt'] = cat[cat_col].apply(category_label_pt)
                 cat['bad_rate_pct'] = cat['bad_rate'] * 100
                 fig = px.bar(cat.nlargest(12, 'bad_rate_pct').sort_values('bad_rate_pct'), x='bad_rate_pct', y='categoria_pt', orientation='h',
-                             title='Principais categorias com maior taxa de nota 1-2')
+                             title='Principais categorias com maior taxa de nota 1-2',
+                             labels={'bad_rate_pct': '% Nota Baixa', 'categoria_pt': 'Categoria'})
                 fig.update_layout(height=380, margin={'t': 45, 'l': 10, 'r': 10, 'b': 10})
                 fig.update_xaxes(title='Taxa de nota 1-2 (%)')
                 st.plotly_chart(fig, use_container_width=True)
@@ -399,7 +335,7 @@ with d2:
 st.markdown('**Frete relativo**')
 f1, f2 = st.columns(2)
 with f1:
-    risk_box('Maior risco: top 10% freight_ratio', '-' if pd.isna(fr_top) else f'{fr_top:.1%}', tone='high')
+    risk_box('Maior risco: frete mais caro (top 10%)', '-' if pd.isna(fr_top) else f'{fr_top:.1%}', tone='high')
 with f2:
     risk_box('Menor risco: média da base', '-' if pd.isna(fr_base) else f'{fr_base:.1%}', tone='low')
 

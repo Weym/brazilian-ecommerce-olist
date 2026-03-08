@@ -17,12 +17,12 @@ from pathlib import Path
 # Adicionar raiz ao path para importar utils e src
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-import streamlit as st
 import pandas as pd
 import plotly.graph_objects as go
-
-from utils.loaders import load_pipeline, load_threshold, load_categories_and_ufs
-from utils.ui import page_header
+import streamlit as st
+from utils.loaders import (load_categories_and_ufs, load_pipeline,
+                           load_threshold)
+from utils.ui import category_label_pt, page_header
 
 # CRITICO: page_header deve ser a primeira chamada Streamlit
 page_header("Preditor de Risco", icon="⚡")
@@ -79,27 +79,27 @@ if not ufs:
 # Formato: (label, freight, price, days, category, seller, customer)
 _PRESETS = {
     "-- selecione um exemplo --": None,
-    "Verde (~29%) — Frete alto, categoria incomum: MG→RR, garden_tools":
+    "Verde (~29%) — Frete alto, categoria incomum: MG→RR, Ferramentas para Jardim":
         (90, 60, 35, "garden_tools", "MG", "RR"),
-    "Verde (~30%) — Frete alto, categoria brinquedos: PE→AM, toys":
+    "Verde (~30%) — Frete alto, categoria brinquedos: PE→AM, Brinquedos":
         (75, 55, 28, "toys", "PE", "AM"),
-    "Verde (~36%) — Produto barato de bebê: BA→PA, baby":
+    "Verde (~36%) — Produto barato de bebê: BA→PA, Bebê":
         (65, 45, 32, "baby", "BA", "PA"),
-    "Verde (~38%) — Eletrônicos, preço alto: MG→SP, electronics":
+    "Verde (~38%) — Eletrônicos, preço alto: MG→SP, Eletrônicos":
         (15, 350, 7, "electronics", "MG", "SP"),
-    "Amarelo (~41%) — Móveis, rota longa: SP→AM, furniture_decor":
+    "Amarelo (~41%) — Móveis, rota longa: SP→AM, Móveis e Decoração":
         (80, 50, 30, "furniture_decor", "SP", "AM"),
-    "Amarelo (~41%) — Esportes, rota regional: RJ→BA, sports_leisure":
+    "Amarelo (~41%) — Esportes, rota regional: RJ→BA, Esporte e Lazer":
         (45, 90, 20, "sports_leisure", "RJ", "BA"),
-    "Amarelo (~43%) — Informática, prazo curto: SC→PR, computers":
+    "Amarelo (~43%) — Informática, prazo curto: SC→PR, Informática e Acessórios":
         (10, 250, 8, "computers_accessories", "SC", "PR"),
-    "Vermelho (~45%) — Cama/mesa/banho: SP→AM, bed_bath_table":
+    "Vermelho (~45%) — Cama/mesa/banho: SP→AM, Cama, Mesa e Banho":
         (55, 70, 22, "bed_bath_table", "SP", "CE"),
     "Vermelho (~48%) — Cama/mesa/banho, rota Norte: SP→PA":
         (60, 80, 25, "bed_bath_table", "SP", "PA"),
-    "Vermelho (~45%) — Beleza/saúde, rota curta: SP→SP, health_beauty":
+    "Vermelho (~45%) — Beleza/saúde, rota curta: SP→SP, Saúde e Beleza":
         (12, 180, 5, "health_beauty", "SP", "SP"),
-    "Vermelho (~55%) — Beleza/saúde, SP→RJ, health_beauty":
+    "Vermelho (~55%) — Beleza/saúde, SP→RJ, Saúde e Beleza":
         (25, 200, 10, "health_beauty", "SP", "RJ"),
     "Vermelho (~57%) — Beleza/saúde, entrega local: RJ→RJ":
         (20, 150, 8, "health_beauty", "RJ", "RJ"),
@@ -133,7 +133,7 @@ def build_gauge(prob: float) -> tuple:
     elif prob < THRESHOLD_HIGH:
         action = "Monitorar — acompanhar prazo e rastrear entrega"
         bar_color = "#f39c12"   # amarelo
-        risk_label = "Risco Medio"
+        risk_label = "Risco Médio"
     else:
         action = "Contato preventivo via WhatsApp antes da data estimada de entrega"
         bar_color = "#e74c3c"   # vermelho
@@ -215,7 +215,7 @@ st.divider()
 # Formulario de entrada
 # ---------------------------------------------------------------------------
 with st.form("preditor_form"):
-    st.subheader("Caracteristicas do Pedido")
+    st.subheader("Características do Pedido")
 
     col1, col2 = st.columns(2)
 
@@ -229,7 +229,7 @@ with st.form("preditor_form"):
             help="Frete cobrado no pedido (mediana Olist: R$ 17,17)",
         )
         price = st.number_input(
-            "Preco do Produto (R$)",
+            "Preço do Produto (R$)",
             min_value=0.01,
             max_value=10000.0,
             value=float(_pr),
@@ -249,6 +249,7 @@ with st.form("preditor_form"):
         product_category_name_english = st.selectbox(
             "Categoria do Produto",
             options=categories,
+            format_func=category_label_pt,
             index=categories.index(_cat) if _cat in categories else 0,
             help="Categoria do produto no catalogo Olist (71 categorias)",
         )
@@ -307,11 +308,11 @@ if submitted:
 
         # Acao recomendada em destaque visual
         if prob < THRESHOLD_LOW:
-            st.success(f"**Acao Recomendada:** {action}")
+            st.success(f"**Ação Recomendada:** {action}")
         elif prob < THRESHOLD_HIGH:
-            st.warning(f"**Acao Recomendada:** {action}")
+            st.warning(f"**Ação Recomendada:** {action}")
         else:
-            st.error(f"**Acao Recomendada:** {action}")
+            st.error(f"**Ação Recomendada:** {action}")
 
         st.caption(
             f"Banda vertical no gauge = threshold operacional ({threshold*100:.1f}%) — "
