@@ -6,9 +6,9 @@
 - [x] Task: Conductor - User Manual Verification 'Research and Preparation' (Protocol in workflow.md)
 
 **Phase 2: Implementation**
-- [ ] Task: Implement change: Grouping. Update cell 11 to group by `product_category_name`.
-- [ ] Task: Implement change: Plotting. Update cell 11 (Matplotlib) and cell 12 (Plotly/Seaborn) to use `product_category_name` as labels.
-- [ ] Task: Conductor - User Manual Verification 'Implementation' (Protocol in workflow.md)
+- [x] Task: Implement change: Grouping. Update cell 10 to group by `product_category_name`. d1ed312
+- [x] Task: Implement change: Plotting. Update cell 11 (Matplotlib) and cell 12 (Plotly/Seaborn) to use `product_category_name` as labels. d1ed312
+- [x] Task: Conductor - User Manual Verification 'Implementation' (Protocol in workflow.md)
 
 **Phase 3: Validation and Completion**
 - [ ] Task: Execution. Run the notebook `notebooks/FASE3-P3-eda-metricas.ipynb` to ensure it completes successfully and regenerates figures.
