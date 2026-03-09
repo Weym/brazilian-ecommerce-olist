@@ -5,7 +5,7 @@
 - [x] Task: Verify that `product_category_name` is correctly loaded in the notebook's setup phase.
 - [x] Task: Conductor - User Manual Verification 'Research and Preparation' (Protocol in workflow.md)
 
-**Phase 2: Implementation**
+**Phase 2: Implementation [checkpoint: 89ad956]**
 - [x] Task: Implement change: Grouping. Update cell 10 to group by `product_category_name`. d1ed312
 - [x] Task: Implement change: Plotting. Update cell 11 (Matplotlib) and cell 12 (Plotly/Seaborn) to use `product_category_name` as labels. d1ed312
 - [x] Task: Conductor - User Manual Verification 'Implementation' (Protocol in workflow.md)
