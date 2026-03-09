@@ -10,7 +10,7 @@
 - [x] Task: Implement change: Plotting. Update cell 11 (Matplotlib) and cell 12 (Plotly/Seaborn) to use `product_category_name` as labels. d1ed312
 - [x] Task: Conductor - User Manual Verification 'Implementation' (Protocol in workflow.md)
 
-**Phase 3: Validation and Completion**
+**Phase 3: Validation and Completion [checkpoint: 6820fe1]**
 - [x] Task: Execution. Run the notebook `notebooks/FASE3-P3-eda-metricas.ipynb` to ensure it completes successfully and regenerates figures.
 - [x] Task: Visual Check. Verify `reports/figures/eda04_categorias_ruins.png` uses Portuguese names.
 - [x] Task: Conductor - User Manual Verification 'Validation and Completion' (Protocol in workflow.md)
