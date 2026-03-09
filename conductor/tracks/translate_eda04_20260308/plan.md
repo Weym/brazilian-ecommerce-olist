@@ -1,6 +1,6 @@
 # Implementation Plan: Translate EDA-04 Product Names
 
-**Phase 1: Research and Preparation**
+**Phase 1: Research and Preparation [checkpoint: 5e866b5]**
 - [x] Task: Inspect `notebooks/FASE3-P3-eda-metricas.ipynb` to identify all cells requiring modification (aggregation and plotting).
 - [x] Task: Verify that `product_category_name` is correctly loaded in the notebook's setup phase.
 - [x] Task: Conductor - User Manual Verification 'Research and Preparation' (Protocol in workflow.md)
