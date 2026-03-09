@@ -1,0 +1,8 @@
+{
+  "track_id": "translate_eda04_20260308",
+  "type": "refactor",
+  "status": "new",
+  "created_at": "2026-03-08T12:00:00Z",
+  "updated_at": "2026-03-08T12:00:00Z",
+  "description": "Modifique a tabela \"EDA-04\" encontrado em \"notebooks/FASE3-P3-eda-metricas.ipynb\" de forma que a coluna do nome dos produtos esteja traduzida para portugu\u00eas"
+}
