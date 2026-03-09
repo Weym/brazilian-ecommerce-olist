@@ -5,7 +5,7 @@
 
 ## Frontend & Visualization
 - **Streamlit:** Used for rapid development of data-driven dashboards.
-- **Plotly & Matplotlib:** Specialized libraries for generating interactive maps and static data visualizations.
+- **Plotly, Matplotlib & Seaborn:** Specialized libraries for generating interactive maps and static data visualizations.
 - **Custom CSS & Branding:** Injected via a dedicated UI utility (`utils/ui.py`) for a professional, "advanced" aesthetic.
 
 ## Data & Machine Learning
