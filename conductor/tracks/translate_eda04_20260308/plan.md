@@ -14,3 +14,6 @@
 - [x] Task: Execution. Run the notebook `notebooks/FASE3-P3-eda-metricas.ipynb` to ensure it completes successfully and regenerates figures.
 - [x] Task: Visual Check. Verify `reports/figures/eda04_categorias_ruins.png` uses Portuguese names.
 - [x] Task: Conductor - User Manual Verification 'Validation and Completion' (Protocol in workflow.md)
+
+## Phase: Review Fixes
+- [x] Task: Apply review suggestions 4c70df8
