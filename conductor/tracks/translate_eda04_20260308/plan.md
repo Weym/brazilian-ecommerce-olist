@@ -11,6 +11,6 @@
 - [x] Task: Conductor - User Manual Verification 'Implementation' (Protocol in workflow.md)
 
 **Phase 3: Validation and Completion**
-- [ ] Task: Execution. Run the notebook `notebooks/FASE3-P3-eda-metricas.ipynb` to ensure it completes successfully and regenerates figures.
-- [ ] Task: Visual Check. Verify `reports/figures/eda04_categorias_ruins.png` uses Portuguese names.
-- [ ] Task: Conductor - User Manual Verification 'Validation and Completion' (Protocol in workflow.md)
+- [x] Task: Execution. Run the notebook `notebooks/FASE3-P3-eda-metricas.ipynb` to ensure it completes successfully and regenerates figures.
+- [x] Task: Visual Check. Verify `reports/figures/eda04_categorias_ruins.png` uses Portuguese names.
+- [x] Task: Conductor - User Manual Verification 'Validation and Completion' (Protocol in workflow.md)
